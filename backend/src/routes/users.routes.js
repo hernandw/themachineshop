@@ -16,5 +16,8 @@ router.post('/signIn', signIn);
 router.get('/users', verifyToken, getUsers);
 
 router.get('/user/:id', verifyToken, getUser);
+//modificar un usuario
+
+//eliminar un usuario
 
 export default router;
