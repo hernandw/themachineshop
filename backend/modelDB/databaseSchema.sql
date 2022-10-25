@@ -46,3 +46,37 @@ CREATE TABLE Address(
   id_user INT NOT NULL,
   FOREIGN KEY (id_user) REFERENCES Users(id_user)
 );
+
+CREATE TABLE sales(
+  id_sale INT PRIMARY KEY AUTO_INCREMENT,
+  sale_date DATETIME NOT NULL,
+  sale_total_amount FLOAT NOT NULL,
+  id_user INT NOT NULL,
+  FOREIGN KEY (id_user) REFERENCES Users(id_user)
+);
+
+CREATE TABLE categories(
+  id_category INT PRIMARY KEY AUTO_INCREMENT,
+  category_name VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE products(
+  id_product INT PRIMARY KEY AUTO_INCREMENT,
+  product_name VARCHAR(45) NOT NULL,
+  product_creation_date DATETIME,
+  product_price FLOAT,
+  product_quantity INT,
+  product_description VARCHAR(500),
+  product_image_url VARCHAR(45),
+  id_category INT,
+  FOREIGN KEY (id_category) REFERENCES categories(id_category)
+);
+
+CREATE TABLE sales_details(
+  id_sale_detail INT PRIMARY KEY AUTO_INCREMENT,
+  id_sale INT,
+  id_product INT,
+  product_quantity INT,
+  FOREIGN KEY (id_sale) REFERENCES sales(id_sale),
+  FOREIGN KEY (id_product) REFERENCES products(id_product)
+);

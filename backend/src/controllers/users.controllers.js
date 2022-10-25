@@ -18,7 +18,7 @@ export const signUp = async (req, res) => {
   });
  } catch (error) {
   return res.status(500).json({
-   message: 'Somthing goes wrong',
+   message: 'Something goes wrong',
   });
  }
 };
@@ -38,11 +38,11 @@ export const signIn = async (req, res) => {
 
   if (rows.length > 0) {
    const user = rows[0];
-   const { username, email, roles } = rows[0];
+   const { id_user, username, email, roles } = rows[0];
 
    if (comparePasswords(user, password)) {
     jwt.sign(
-     { username, email, roles },
+     { id_user, username, email, roles },
      JWTSECRET,
      { expiresIn: expireTime },
      (err, token) => {
@@ -69,7 +69,7 @@ export const signIn = async (req, res) => {
  }
 };
 
-export const users = async (req, res) => {
+export const getUsers = async (req, res) => {
  jwt.verify(req.token, JWTSECRET, async (error, authData) => {
   if (error) {
    res.sendStatus(403);
@@ -79,6 +79,37 @@ export const users = async (req, res) => {
 
     res.json({ rows, authData });
    } catch (error) {
+    return res.status(500).json({
+     message: 'Something goes wrong',
+    });
+   }
+  }
+ });
+};
+
+export const getUser = async (req, res) => {
+ const userId = req.params.id;
+
+ jwt.verify(req.token, JWTSECRET, async (error, authData) => {
+  if (error) {
+   res.sendStatus(403);
+  } else {
+   console.log(authData);
+   try {
+    const [rows] = await pool.query('SELECT * FROM Users WHERE id_user = ?', [
+     userId,
+    ]);
+
+    if (rows.length <= 0)
+     return res.status(404).json({
+      message: 'user not found',
+     });
+
+    const { id_user, username, email } = rows[0];
+
+    res.json({ id_user, username, email });
+   } catch (error) {
+    console.log(error);
     return res.status(500).json({
      message: 'Something goes wrong',
     });
