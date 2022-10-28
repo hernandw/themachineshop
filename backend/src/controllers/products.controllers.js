@@ -42,7 +42,14 @@ export const createProduct = async (req, res) => {
    ]
   );
 
-  res.send(rows);
+  const id = rows.insertId;
+
+  const [result] = await pool.query(
+   'SELECT * FROM products WHERE id_product = ?',
+   [id]
+  );
+
+  res.send(result);
  } catch (error) {
   console.log(error);
   return res.status(500).json({
@@ -59,6 +66,12 @@ export const getProduct = async (req, res) => {
    'SELECT * FROM products WHERE id_product = ?',
    [id_product]
   );
+
+  if (rows.length <= 0) {
+   return res.status(404).json({
+    message: 'Product not found',
+   });
+  }
 
   res.json(rows);
  } catch (error) {
