@@ -93,6 +93,40 @@ body {
   border: none;
 }
 
+.modal {
+  position: absolute;
+  background-color: var(--gray-input);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__button {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 5px;
+  border-radius: 50px;
+  width: 100px;
+  text-transform: uppercase;
+}
+
+.cerrar-modal {
+  position: absolute;
+  right: 3rem;
+  top: 3rem;
+  width: 2rem;
+  height: 2rem;
+}
+
 /* PRODUCTS */
 
 .container__products {
