@@ -37,7 +37,7 @@ export const Footer = () => {
       </form>
 			</div>
     </div>
-      <div class="copyright">
+      <div className="copyright">
         <p>Desarrollado por Equipo 3 - Hunteando © 2022 </p>
       </div>
 		</>
