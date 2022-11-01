@@ -1,13 +1,13 @@
 import React from 'react';
-// import { Modal } from '../assets/components/Modal';
 import { Footer } from "../assets/components/Footer";
-import { Header } from "../assets/components/Header";
+import { Header2 } from "../assets/components/Header2";
+import { Modal } from "../assets/components/Modal"
 
 
 function Login (){
     return <>
-    <Header />
-    {/* <Modal /> */}
+    <Header2 />
+    <Modal />
     <Footer />
     </>
 }

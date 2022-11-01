@@ -93,21 +93,51 @@ body {
   border: none;
 }
 
+ /* Fin del Header */
+
+ /* Header2 */
+
+.header2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+}
+
+.header2 img {
+  width: 85px;
+}
+
+.header__search2 {
+  margin-left: 1rem;
+  background-color: var(--background);
+  border-radius: 20px;
+  padding: 5px;
+  border: 1px solid var(--black);
+  width: 200px;
+}
+
+
+
+  /* Header 2 */
 .modal {
-  position: absolute;
   background-color: var(--gray-input);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .modal__container {
-  height: 100vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.inputs__login {
+  margin-bottom: 0.5rem;
+  width: 21rem;
+  height: 2.5rem;
+  background:#FFFFFF;
+  border-radius: 4px;
 }
 
 .modal__button {
@@ -117,14 +147,6 @@ body {
   border-radius: 50px;
   width: 100px;
   text-transform: uppercase;
-}
-
-.cerrar-modal {
-  position: absolute;
-  right: 3rem;
-  top: 3rem;
-  width: 2rem;
-  height: 2rem;
 }
 
 /* PRODUCTS */
