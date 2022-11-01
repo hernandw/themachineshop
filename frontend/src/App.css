@@ -120,6 +120,8 @@ body {
 
 
   /* Header 2 */
+
+  /* Modal */
 .modal {
   background-color: var(--gray-input);
 }
@@ -148,6 +150,8 @@ body {
   width: 100px;
   text-transform: uppercase;
 }
+
+/* fin Modal */
 
 /* PRODUCTS */
 
@@ -264,6 +268,9 @@ textarea {
   padding: 10px;
 }
 
+input:invalid:focus {
+  background-color: red;
+}
 
 
 @media (min-width: 600px) {
@@ -276,8 +283,8 @@ textarea {
   }
   
   .card {
-width: 224px;
-height: 280px;
+  width: 224px;
+  height: 280px;
   }
 
   .container__footer {
@@ -290,6 +297,7 @@ height: 280px;
     padding-left: 30px;
     align-items: flex-start;
   }
+
 }
 
 @media (min-width: 1000px) {
