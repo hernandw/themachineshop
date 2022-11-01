@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../icons/logo_white.svg";
+import {Link} from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -8,24 +9,24 @@ export const Footer = () => {
       <div className="container__footer">
 			<div className="container__footer-text">
         <img src={logo} alt="logotipo" />
-        <a href="#" target="_blank">
-          Quiénes somos
-        </a>
-        <a href="#" target="_blank">
-          Política de privacidad
-        </a>
-        <a href="#" target="_blank">
+        <Link to="/about">
+        Quiénes somos
+        </Link>
+        <Link to="/privacy">
+        Política de privacidad
+        </Link>
+        <Link to="/answers">
           Preguntas Frecuentes
-        </a>
+        </Link>
         <a href="#" target="_blank">
           Carrito
         </a>
-        <a href="#" target="_blank">
-          Contacto
-        </a>
-        <a href="#" target="_blank">
+        <Link to="/contact">
+        Contacto
+        </Link>
+        <Link to="/work">
           Trabaja con nosotros
-        </a>
+        </Link>
       </div>
       <form className="footer_form">
         <p>Hable con nosotros</p>
