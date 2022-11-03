@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import logo from "../assets/icons/logo.svg";
 import { Link } from "react-router-dom";
 import "../App.css";
-import { Modal } from './Modal'
 
-export const Header = () => {
+
+export const Header = ({setModal, setAnimarModal}) => {
+  
 const onHandleModal = ()=>{
-  setModal(true)
+  setModal(true);
+  setTimeout(()=>{
+    setAnimarModal(true)
+  }, 500)
 }
 
-  const [modal,  setModal]  = useState(false)
+  
   return (
     <div className="container">
       <div className="header">
@@ -36,9 +40,7 @@ const onHandleModal = ()=>{
         </p>
         <button className="header__button-new">new</button>
       </div>
-      {
-        modal && <Modal  />
-      }
+      
     </div>
   );
 };

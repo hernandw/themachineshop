@@ -20,10 +20,6 @@ body {
   background-color: var(--background);
 }
 
-@font-face {
-  font-family: "Gotham";
-  src: url(./assets/font/gotham/GothamBook.ttf);
-}
 
 h3 {
   margin-bottom: 10px;
@@ -84,7 +80,7 @@ h3 {
   font-size: 12px;
   font-weight: 500;
   padding-left: 20px;
-  font-family: "Gotham";
+  
 }
 
 .header__button-new {
@@ -99,48 +95,35 @@ h3 {
 
  /* Fin del Header */
 
- /* Header2 */
-
-/* .header2 {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 15px;
-}
-
-.header2 img {
-  width: 85px;
-}
-
-.header__search2 {
-  margin-left: 1rem;
-  background-color: var(--background);
-  border-radius: 20px;
-  padding: 5px;
-  border: 1px solid var(--black);
-  width: 200px;
-} */
-
-
-
-  /* Header 2 */
 
   /* Modal */
 .modal {
+  
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
     background-color: var(--gray-input);
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    
 }
 
-.modal__container {
-  height: 100%;
+
+
+.formulario {
+  width: 100%;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  opacity: 0;
 }
 
 .inputs__login {
@@ -170,6 +153,15 @@ h3 {
   height: 2rem;
 }
 
+.animar {
+  position: relative;
+  opacity: 1;
+}
+
+.cerrar {
+  opacity: 0;
+}
+
 /* fin Modal */
 
 /* PRODUCTS */
@@ -177,8 +169,10 @@ h3 {
 .container__products {
   
   display: grid;
+  
   grid-template-columns: repeat(2, 1fr);
   justify-content: center;
+  align-items: center;
   
 }
 
@@ -193,7 +187,7 @@ box-shadow: 9px 10px 12px -3px rgba(0,0,0,0.52);
 }
 
 .card__title {
-  font-family: Gotham;
+  
   font-size: 14px;
   padding: 5px;
 }
@@ -221,6 +215,7 @@ box-shadow: 9px 10px 12px -3px rgba(0,0,0,0.52);
 /* FOOTER */
 .footer_principal {
   width: 100%;
+  
    position: absolute;
  
 }

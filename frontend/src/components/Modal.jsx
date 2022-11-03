@@ -1,23 +1,41 @@
-import cerrarBTN from '../assets/icons/cerrar.svg'
+import cerrarBTN from "../assets/icons/cerrar.svg";
 
+export const Modal = ({ setModal, animarModal, setAnimarModal }) => {
+  const onHandle = () => {
+		setAnimarModal(false)
+		
+		setTimeout(()=>{
+			
+			setModal(false)
+		}, 500)
+  };
 
-export const Modal = () => {
+  return (
+    <div className="modal">
+      <div className="cerrar-modal">
+        <img src={cerrarBTN} alt="cerrar modal" onClick={onHandle} />
+      </div>
 
-	const onHandleCerrar = ()=>{
-		console.log('diste click para cerrar');
-	}
-	return (
-		<div className='modal'>
-			<div className='modal__container'>
-			<div className="cerrar-modal">
-				<img src={cerrarBTN} alt="cerrar modal" onClick={onHandleCerrar}/>
-			</div>
-			<h3>Iniciar Sesión</h3>
-			<input required className="inputs__login" type="email" placeholder='Escriba su correo electrónico' />
-			<input required className="inputs__login" type="password"  placeholder='Escriba su contraseña' />
-			<button className='modal__button'>Entrar</button>
-			<p><strong>¿No tienes una cuenta?</strong> <a href="#">Regístrate</a></p>
-			</div>
-		</div>
-	)
-}
+			<form className={`formulario ${animarModal ? 'animar' : 'cerrar'}`}>
+				<legend>Iniciar Sesión</legend>
+				<input
+          required
+          className="inputs__login"
+          type="email"
+          placeholder="Escriba su correo electrónico"
+        />
+				 <input
+          required
+          className="inputs__login"
+          type="password"
+          placeholder="Escriba su contraseña"
+        />
+				<button className="modal__button">Entrar</button>
+				<p>
+          <strong>¿No tienes una cuenta?</strong> <a href="#">Regístrate</a>
+        </p>
+			</form>
+
+    </div>
+  );
+};
