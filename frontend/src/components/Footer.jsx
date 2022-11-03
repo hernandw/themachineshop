@@ -1,6 +1,7 @@
 import React from "react";
-import logo from "../icons/logo_white.svg";
+import logo from "../assets/icons/logo_white.svg";
 import {Link} from "react-router-dom";
+import { } from '../pages/About'
 
 export const Footer = () => {
   return (
@@ -18,9 +19,7 @@ export const Footer = () => {
         <Link to="/answers">
           Preguntas Frecuentes
         </Link>
-        <a href="#" target="_blank">
-          Carrito
-        </a>
+      
         <Link to="/contact">
         Contacto
         </Link>
@@ -37,10 +36,10 @@ export const Footer = () => {
         <button className="button__footer">enviar mensaje</button>
       </form>
 			</div>
-    </div>
       <div className="copyright">
         <p>Desarrollado por Equipo 3 - Hunteando © 2022 </p>
       </div>
+    </div>
 		</>
   );
 };

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
-import About from './pages/about';
+import About from './pages/About';
 import Answers from './pages/Answers';
-import Contact from './pages/contact';
-import Home from './pages/home';
-import Login from './pages/login';
-import Privacy from './pages/privacy';
-import Work from './pages/work';
+import Contact from './pages/Contact';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Privacy from './pages/Privacy';
+import Work from './pages/Work';
 import './App.css';
 
 class App extends Component {
@@ -31,4 +31,18 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App; */
+
+import React from "react";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { Outlet } from "react-router-dom";
+export const App = () => {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
+};

@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import lampara from "../images/lampara.jpeg";
-import lampara2 from "../images/lampara2.jpeg";
-import lampara3 from "../images/lampara3.jpeg";
-import lampara4 from "../images/lampara4.jpeg";
-import lampara5 from "../images/lampara5.jpeg";
-import lampara6 from "../images/lampara6.jpeg";
-import lampara7 from "../images/lampara7.jpeg";
-import lampara8 from "../images/lampara8.jpeg";
-import lampara9 from "../images/lampara9.jpeg";
+import lampara from "../assets/images/lampara.jpeg";
+import lampara2 from "../assets/images/lampara2.jpeg";
+import lampara3 from "../assets/images/lampara3.jpeg";
+import lampara4 from "../assets/images/lampara4.jpeg";
+import lampara5 from "../assets/images/lampara5.jpeg";
+import lampara6 from "../assets/images/lampara6.jpeg";
+import lampara7 from "../assets/images/lampara7.jpeg";
+import lampara8 from "../assets/images/lampara8.jpeg";
+import lampara9 from "../assets/images/lampara9.jpeg";
 
 export const Products = () => {
   const [product, setProduct] = useState([
