@@ -17,35 +17,35 @@ export const Products = () => {
       img: lampara,
       name: "Product XYZ",
       category: lampara,
-      price: 20000,
+      price: 20,
     },
     {
       id: 2,
       img: lampara2,
       name: "Product XYZ",
       category: lampara,
-      price: 18000,
+      price: 18,
     },
     {
       id: 3,
       img: lampara3,
       name: "Product XYZ",
       category: lampara,
-      price: 17000,
+      price: 17,
     },
     {
       id: 4,
       img: lampara4,
       name: "Product XYZ",
       category: lampara,
-      price: 12000,
+      price: 12,
     },
     {
       id: 5,
       img: lampara5,
       name: "Product XYZ",
       category: lampara,
-      price: 23000,
+      price: 23,
     },
     ,
     {
@@ -53,7 +53,7 @@ export const Products = () => {
       img: lampara6,
       name: "Product XYZ",
       category: lampara,
-      price: 21000,
+      price: 21,
     }
     ,
     {
@@ -61,7 +61,7 @@ export const Products = () => {
       img: lampara7,
       name: "Product XYZ",
       category: lampara,
-      price: 28000,
+      price: 28,
     }
     ,
     {
@@ -69,14 +69,14 @@ export const Products = () => {
       img: lampara8,
       name: "Product XYZ",
       category: lampara,
-      price: 16000,
+      price: 16,
     }
   ]);
   const number = product.price;
   const formateado = (number) => {
     return number.toLocaleString("ES-es", {
       style: "currency",
-      currency: "CLP",
+      currency: "USD",
     });
   };
   return (
