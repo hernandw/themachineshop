@@ -53,13 +53,13 @@ export const signIn = async (req, res) => {
      }
     );
    } else {
-    return res.json({
-     message: 'wrong password',
+    return res.status(403).json({
+     message: 'Contraseña incorrecta',
     });
    }
   } else {
-   return res.json({
-    message: 'user does not exist',
+   return res.status(403).json({
+    message: 'El usuario no existe',
    });
   }
  } catch (error) {
