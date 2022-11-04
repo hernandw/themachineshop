@@ -1,8 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-function Answers () {
-    return <div>
-        <h2>Hola! soy Answers</h2>
-    </div>
+export const Answers = () => {
+  return (
+    <div>Answers</div>
+  )
 }
-export default Answers;

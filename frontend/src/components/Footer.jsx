@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/icons/logo_white.svg";
 import {Link} from "react-router-dom";
-import { } from '../pages/About'
+
 
 export const Footer = () => {
   return (
@@ -9,7 +9,7 @@ export const Footer = () => {
 			<div className="footer_principal">
       <div className="container__footer">
 			<div className="container__footer-text">
-        <img src={logo} alt="logotipo" />
+        <Link to="/"><img src={logo} alt="logotipo" /></Link> 
         <Link to="/about">
         Quiénes somos
         </Link>

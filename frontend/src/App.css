@@ -162,6 +162,12 @@ h3 {
   opacity: 0;
 }
 
+.fijar {
+  overflow: hidden;
+  height: 100vh;
+  
+}
+
 /* fin Modal */
 
 /* PRODUCTS */
@@ -216,7 +222,7 @@ box-shadow: 9px 10px 12px -3px rgba(0,0,0,0.52);
 .footer_principal {
   width: 100%;
   
-   position: absolute;
+   /* position: absolute; */
  
 }
 

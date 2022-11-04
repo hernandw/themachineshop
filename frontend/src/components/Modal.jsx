@@ -32,7 +32,7 @@ export const Modal = ({ setModal, animarModal, setAnimarModal }) => {
         />
 				<button className="modal__button">Entrar</button>
 				<p>
-          <strong>¿No tienes una cuenta?</strong> <a href="#">Regístrate</a>
+          <strong>¿No tienes una cuenta?</strong> <a href="/register">Regístrate</a>
         </p>
 			</form>
 

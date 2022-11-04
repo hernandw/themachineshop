@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-function Work () {
-    return <div>
-        <h2>Hola! soy Work</h2>
-    </div>
+export const Work = () => {
+  return (
+    <div>Work</div>
+  )
 }
-export default Work;
+

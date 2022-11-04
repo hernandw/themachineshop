@@ -1,19 +1,9 @@
-import React from 'react';
+import React from 'react'
 
-function About () {
-    return <div>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        <h2>Hola! soy About</h2>
-        
-    </div>
+export const About = () => {
+  return (
+    <div>About</div>
+  )
 }
-export default About;
+
+
