@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaTwitter, FaGithub, FaLinkedinIn } from "react-icons/fa";
 
+
+
 export const Profile = ({img, name, position, socialTwitter, socialGithub, socialLinkedin}) => {
 	return (
 		<div className="card__person">
