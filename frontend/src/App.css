@@ -356,6 +356,26 @@ textarea {
  background: #ffffff;
  border-radius: 4px;
 }
+.privacity__container {
+  padding: 30px;
+}
+
+.privacity__container li {
+  padding-left: 40px;
+  list-style-position: inside;
+}
+
+.privacity__container h2 {
+  margin: 10px;
+}
+
+.privacity__container p {
+  margin: 15px;
+}
+
+span {
+  font-weight: bold;
+}
 
 /* LOADER SPINNER */
 

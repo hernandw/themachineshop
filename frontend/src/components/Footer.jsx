@@ -17,7 +17,7 @@ export const Footer = () => {
         Política de privacidad
         </Link>
         <Link to="/answers">
-          Preguntas Frecuentes
+          Políticas de Envío
         </Link>
       
         <Link to="/contact">
