@@ -19,7 +19,7 @@ const onHandleModal = ()=>{
       <div className="header">
         <div>
           <Link to="/">
-            <img src={logo} alt="logotipo" />
+            <img className="header__logo" src={logo} alt="logotipo" />
           </Link>
         </div>
         <div className="search">
