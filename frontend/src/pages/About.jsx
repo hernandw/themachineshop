@@ -6,7 +6,7 @@ import damian from '../assets/images/damian.jpeg'
 import dorian from '../assets/images/dorian.jpeg'
 import rumer from '../assets/images/rumer.jpeg'
 import jazmin from '../assets/images/jazmin.jpeg'
-import hernan from '../assets/images/hernan.jpeg'
+import hernan from '../assets/images/damian.jpeg'
 import { Profile } from "../components/Profile";
 
 export const About = () => {
