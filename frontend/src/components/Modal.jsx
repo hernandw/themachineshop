@@ -17,7 +17,7 @@ export const Modal = ({ setModal, animarModal, setAnimarModal }) => {
       </div>
 
 			<form className={`formulario ${animarModal ? 'animar' : 'cerrar'}`}>
-				<legend>Iniciar Sesión</legend>
+				<legend className="login__title">Iniciar Sesión</legend>
 				<input
           required
           className="inputs__login"

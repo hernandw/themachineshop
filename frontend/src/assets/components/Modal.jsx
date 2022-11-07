@@ -17,7 +17,7 @@ export const Modal = () => {
  return (
   <div className='modal'>
    <form onSubmit={handleSubmit} className='modal__container'>
-    <h3>Iniciar Sesión</h3>
+    <h3 className='login__title'>Iniciar Sesión</h3>
 
     <Input
      name='email'

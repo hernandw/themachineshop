@@ -3,11 +3,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { App } from "./App";
-import { Products, Admin, Users, ProductAdd } from "./components/";
+import { Products, Admin, Users, ProductAdd, FormRegister } from "./components/";
 
 
-import { About, Answers, Contact, Privacy, Register, Work } from "./pages/";
-
+import { About, Answers, Contact, Privacy, Register, Work, action as NewUser } from "./pages/";
+ 
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +41,7 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+        action: NewUser
       },
     ],
   },
