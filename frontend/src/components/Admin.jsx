@@ -1,37 +1,42 @@
-import React from "react";
 import logo from "../assets/icons/logo.svg";
 import { GoThreeBars } from "react-icons/go";
 import { Outlet, Link } from "react-router-dom";
+import { useState } from "react";
+
 export const Admin = () => {
+  const [open, setOpen] = useState(false)
+  const onHandleOpen = ()=>{
+setOpen(!open)
+  }
   return (
     <>
       <div className="container">
         <nav>
           <div className="header">
             <img className="header__logo" src={logo} alt="Logotipo" />
-            <label className="nav__label" htmlFor="menu">
+            <label className="nav__label" htmlFor="menu" onClick={onHandleOpen}>
               <GoThreeBars />
             </label>
-            <input type="checkbox" id="menu" className="nav__input" />
-            <div className="nav__menu">
-              <ul>
+            
+            <div className={`nav__menu ${open ? 'isActive': ''}`}>
+              <ul >
                 <li className="menu__item">
-                  <Link className="nav__item" to="/admin">
+                  <Link className="nav__item" to="/admin/" onClick={onHandleOpen} >
                     Inicio
                   </Link>
                 </li>
                 <li className="menu__item">
-                  <Link className="nav__item" to="/admin/users">
+                  <Link className="nav__item" to="/admin/users" onClick={onHandleOpen}>
                     Usuarios
                   </Link>
                 </li>
                 <li className="menu__item">
-                  <Link className="nav__item" to="#">
+                  <Link className="nav__item" to="#" onClick={onHandleOpen}>
                     Paginas
                   </Link>
                 </li>
                 <li className="menu__item">
-                  <Link className="nav__item" to="/admin/products">
+                  <Link className="nav__item" to="/admin/products" onClick={onHandleOpen}>
                     Productos
                   </Link>
                 </li>
