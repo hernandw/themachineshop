@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Header, Footer, Modal } from "./components/";
+import { Header, Footer} from "./components/";
 import { Outlet, useLocation } from "react-router-dom";
+import { Modal } from './components/Modal'
 
 export const App = () => {
   const location = useLocation()

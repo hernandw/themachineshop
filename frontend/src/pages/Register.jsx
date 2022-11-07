@@ -6,7 +6,7 @@ export const action = ()=>{
 }
 export const Register = () => {
   return (
-    <div>
+    <div className='container__general'>
       <h1>Nuevo Usuario</h1>
       <p>Llena todos los campos para registrar un nuevo usuario</p>
       <Form method='post' className="form__container">

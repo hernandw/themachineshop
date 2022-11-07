@@ -35,6 +35,11 @@ body {
 .container {
   max-width: 100vw;
   background-color: var(--white);
+  
+}
+
+.container__general {
+  padding: 30px;
 }
 
 .header {
@@ -106,7 +111,7 @@ body {
 
 .form__container {
   background-color: var(--white);
-  width: 400px;
+  width: 350px;
   margin: 20px auto;
   padding: 10px;
   box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.44);
@@ -203,7 +208,7 @@ body {
 
 /* Modal */
 .modal {
-
+  
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -547,6 +552,9 @@ span {
     display: grid;
     grid-template-columns: 1fr 2fr;
   }
+.container__general {
+  padding: 30px;
+}
 
   .card__person-container {
     grid-template-columns: repeat(3, 1fr);
