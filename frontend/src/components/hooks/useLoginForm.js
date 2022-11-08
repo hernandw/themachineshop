@@ -7,7 +7,7 @@ const initialForm = {
  password: '',
 };
 
-export const useLoginForm = () => {
+export const useLoginForm = (setModal, setUser) => {
  const [form, setForm] = useState(initialForm);
  const [errors, setErrors] = useState({});
  const [loading, setLoading] = useState(false);
@@ -89,19 +89,18 @@ export const useLoginForm = () => {
    setLoading(true);
 
    try {
-    const request = await axios.post(
-     'https://railtest-production-6aaf.up.railway.app/api/signIn',
-     {
-      email: form.email,
-      password: form.password,
-     },
-     { withCredentials: true }
-    );
+    const request = await axios.post('http://localhost:5825/api/signIn', {
+     email: form.email,
+     password: form.password,
+    });
 
-    const response = request;
+    const response = request.data;
     navigate('/');
-    console.log(response);
+    setModal(false);
+    setUser(response.username);
+    window.localStorage.setItem('loggedAppUser', JSON.stringify(response));
    } catch (error) {
+    console.error(error);
     setLoading(false);
     const { status } = error.response;
     const { message } = error.response.data;

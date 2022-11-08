@@ -27,7 +27,6 @@ export const signUp = async (req, res) => {
 export const signIn = async (req, res) => {
  const { email, password } = req.body;
  const expireTime = '24h';
- const oneMonth = 1000 * 60 * 60 * 24 * 30;
 
  const comparePasswords = (user, password) => {
   return user.password === password;
@@ -47,19 +46,9 @@ export const signIn = async (req, res) => {
      expiresIn: expireTime,
     });
 
-    const serialized = serialize('sessionToken', token, {
-     httpOnly: true,
-     secure: true,
-     sameSite: 'none',
-     maxAge: oneMonth,
-     path: '/',
-    });
-
-    /*     res.setHeader('Set-Cookie', serialized);
-    return res.json('welcome'); */
-    //funciona en insomnia
-    res.cookie('Set-Cookie', serialized).status(200).json({
-     message: 'welcome',
+    res.status(200).json({
+     token,
+     username,
     });
    } else {
     return res.status(403).json({
