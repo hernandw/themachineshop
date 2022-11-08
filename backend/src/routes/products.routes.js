@@ -56,18 +56,18 @@ const router = Router();
  *   ProductNotFound:
  *    type: 'object'
  *    properties:
- *      msg:
+ *      message:
  *        type: 'string'
  *        description: A message for the not found product
  *    example:
- *        msg: Product was not found
+ *        message: Product was not found
  *  parameters:
  *    id_product:
  *      in: path
  *      name: id
  *      required: true
  *      schema:
- *        type: 'string'
+ *        type: string
  *      description: The product id
  */
 
@@ -130,7 +130,7 @@ router.post('/product', createProduct);
  *    summary: Get a product by id
  *    tags: [Products]
  *    parameters:
- *      - $ref:'#/components/parameters/id_product'
+ *      - $ref: '#/components/parameters/id_product'
  *    responses:
  *      200:
  *        description: The product was found
@@ -148,9 +148,58 @@ router.post('/product', createProduct);
  *        description: Some server error
  */
 router.get('/products/:id', getProduct);
-
-router.patch('/products/:id', updateProduct);
-
+/**
+ *  @swagger
+ *  /api/products/{id}:
+ *    delete:
+ *      summary: delete a product by id
+ *      tags: [Products]
+ *      parameters:
+ *        - $ref: '#/components/parameters/id_product'
+ *      responses:
+ *        204:
+ *          description: The product was deleted
+ *        404:
+ *          description: The product was not found
+ *          content:
+ *            aplication/json:
+ *              schema:
+ *                $ref: '#/components/schemas/ProductNotFound'
+ *        500:
+ *          description: Some server error
+ */
 router.delete('/products/:id', deleteProduct);
+
+/**
+ * @swagger
+ * /api/products/{id}:
+ *  patch:
+ *    summary: update a product by id
+ *    tags: [Products]
+ *    parameters:
+ *      - $ref: '#/components/parameters/id_product'
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        aplication/json:
+ *          schema:
+ *            $ref: '#/components/schemas/products'
+ *    responses:
+ *      200:
+ *        description: The product was modified
+ *        content:
+ *          aplication/json:
+ *            schema:
+ *              $ref: '#/components/schemas/products'
+ *      404:
+ *        description: The product was not found
+ *        content:
+ *          aplication/json:
+ *            schema:
+ *               $ref: '#/components/schemas/ProductNotFound'
+ *      500:
+ *        description: Some server error
+ */
+router.patch('/products/:id', updateProduct);
 
 export default router;

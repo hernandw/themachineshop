@@ -1,3 +1,5 @@
+import { PORT } from './config/config.js';
+
 export const options = {
  definition: {
   openapi: '3.0.0',
@@ -8,7 +10,7 @@ export const options = {
   },
   servers: [
    {
-    url: 'http://localhost:5000',
+    url: `http://localhost:${PORT}`,
    },
   ],
  },

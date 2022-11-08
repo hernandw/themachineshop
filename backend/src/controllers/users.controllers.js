@@ -62,12 +62,12 @@ export const signIn = async (req, res) => {
      message: 'welcome',
     });
    } else {
-    return res.status(401).json({
-     message: 'Contraseña invalida',
+    return res.status(403).json({
+     message: 'Contraseña incorrecta',
     });
    }
   } else {
-   return res.status(401).json({
+   return res.status(403).json({
     message: 'El usuario no existe',
    });
   }
