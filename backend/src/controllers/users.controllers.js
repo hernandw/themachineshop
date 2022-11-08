@@ -1,6 +1,7 @@
 import { pool } from '../config/mysql.js';
 import jwt from 'jsonwebtoken';
 import { JWTSECRET } from '../config/config.js';
+import { serialize } from 'cookie';
 
 export const signUp = async (req, res) => {
  const { username, email, password, roles } = req.body;
@@ -26,6 +27,7 @@ export const signUp = async (req, res) => {
 export const signIn = async (req, res) => {
  const { email, password } = req.body;
  const expireTime = '24h';
+ const oneMonth = 1000 * 60 * 60 * 24 * 30;
 
  const comparePasswords = (user, password) => {
   return user.password === password;
@@ -41,31 +43,38 @@ export const signIn = async (req, res) => {
    const { id_user, username, email, roles } = rows[0];
 
    if (comparePasswords(user, password)) {
-    jwt.sign(
-     { id_user, username, email, roles },
-     JWTSECRET,
-     { expiresIn: expireTime },
-     (err, token) => {
-      res.json({
-       token,
-       message: 'Welcome',
-      });
-     }
-    );
+    const token = jwt.sign({ id_user, username, email, roles }, JWTSECRET, {
+     expiresIn: expireTime,
+    });
+
+    const serialized = serialize('sessionToken', token, {
+     httpOnly: true,
+     secure: true,
+     sameSite: 'none',
+     maxAge: oneMonth,
+     path: '/',
+    });
+
+    /*     res.setHeader('Set-Cookie', serialized);
+    return res.json('welcome'); */
+    //funciona en insomnia
+    res.cookie('Set-Cookie', serialized).status(200).json({
+     message: 'welcome',
+    });
    } else {
-    return res.json({
-     message: 'wrong password',
+    return res.status(401).json({
+     message: 'Contraseña invalida',
     });
    }
   } else {
-   return res.json({
-    message: 'user does not exist',
+   return res.status(401).json({
+    message: 'El usuario no existe',
    });
   }
  } catch (error) {
-  console.log(error)
+  console.log(error);
   return res.status(500).json({
-   message: 'Something goes wrong',
+   message: 'Algo salio mal',
   });
  }
 };

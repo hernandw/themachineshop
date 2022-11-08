@@ -89,15 +89,20 @@ export const useLoginForm = () => {
    setLoading(true);
 
    try {
-    const request = await axios.post('http://localhost:5825/api/signIn', {
-     email: form.email,
-     password: form.password,
-    });
+    const request = await axios.post(
+     'https://railtest-production-6aaf.up.railway.app/api/signIn',
+     {
+      email: form.email,
+      password: form.password,
+     },
+     { withCredentials: true }
+    );
 
     const response = request;
     navigate('/');
     console.log(response);
    } catch (error) {
+    setLoading(false);
     const { status } = error.response;
     const { message } = error.response.data;
     if (status === 403) setResponseMessage(message);
