@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import { useLoginForm } from "./hooks/useLoginForm";
+import cerrarBTN from "../assets/icons/cerrar.svg";
 
 import { Input } from "./login/Input"
 
-export const Modal = () => {
+export const Modal = ({ setModal, animarModal, setAnimarModal }) => {
+  const onHandle = () => {
+		setAnimarModal(false)
+		
+		setTimeout(()=>{
+			
+			setModal(false)
+		}, 500)
+  };
   const {
     form,
     errors,
@@ -16,12 +25,15 @@ export const Modal = () => {
 
   return (
     <div className="modal">
+    <div className="cerrar-modal">
+        <img src={cerrarBTN} alt="cerrar modal" onClick={onHandle} />
+      </div>
       <form onSubmit={handleSubmit} className="modal__container">
-        <h3 className="login__title">Iniciar Sesión con Rumer</h3>
+        <h3 className="login__title">Iniciar Sesión</h3>
 
         <Input
           name="email"
-          className="inputs__login"
+          className="input__login"
           type="text"
           placeholder="Escriba su correo electrónico"
           autoComplete="on"
@@ -32,7 +44,7 @@ export const Modal = () => {
         />
         <Input
           name="password"
-          className="inputs__login"
+          className="input__login"
           type="password"
           placeholder="Escriba su contraseña"
           autoComplete="on"
@@ -43,7 +55,7 @@ export const Modal = () => {
         />
         {responseMessage ? responseMessage : ""}
         {!loading ? (
-          <input type="submit" className="modal__button" value="Entrar" />
+          <input type="submit" className="button__register" value="Entrar" />
         ) : (
           <div className="lds-ring">
             <div></div>
@@ -54,7 +66,7 @@ export const Modal = () => {
         )}
 
         <p>
-          <strong>¿No tienes una cuenta?</strong> <a href="#">Regístrate</a>
+          <strong>¿No tienes una cuenta?</strong> <a href="/register">Regístrate</a>
         </p>
       </form>
     </div>
