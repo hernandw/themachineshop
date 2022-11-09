@@ -1,10 +1,16 @@
-import React from 'react';
 import logo from '../assets/icons/logo.svg';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import { VscAccount } from 'react-icons/vsc';
-
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
+ const { cart } = useContext(CartContext);
+
+ const navigate = useNavigate();
+
  const onHandleModal = () => {
   setModal(true);
   setTimeout(() => {
@@ -16,6 +22,7 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
   setUser(null);
   window.localStorage.removeItem('loggedAppUser');
  };
+
  return (
   <div className='container'>
    <div className='header'>
@@ -32,16 +39,20 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
      />
     </div>
     {user ? (
-     <>
+     <div className='profile'>
       <p>Hola, {user}!</p>
       <span onClick={() => logOut()}>
-       <VscAccount size={45} />
+       <VscAccount size={35} />
       </span>
-     </>
+      <AiOutlineShoppingCart size={35} onClick={() => navigate('/cart')} />
+     </div>
     ) : (
-     <button className='header__button-login' onClick={onHandleModal}>
-      Login
-     </button>
+     <div className='profile'>
+      <button className='header__button-login' onClick={onHandleModal}>
+       Login
+      </button>
+      <AiOutlineShoppingCart size={35} onClick={() => navigate('/cart')} />
+     </div>
     )}
    </div>
    <div className='header__fondo'>
