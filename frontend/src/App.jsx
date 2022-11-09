@@ -9,6 +9,7 @@ export const App = () => {
  const [modal, setModal] = useState(false);
  const [animarModal, setAnimarModal] = useState(false);
  const [user, setUser] = useState(null);
+ const [cart, setCart] = useState({});
 
  useEffect(() => {
   const mylocal = window.localStorage.getItem('loggedAppUser');
