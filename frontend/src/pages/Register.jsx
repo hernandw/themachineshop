@@ -1,15 +1,16 @@
-import { Form } from 'react-router-dom'
-import { FormRegister } from "../components/FormRegister";
+import { Form } from "react-router-dom";
+import { FormRegister } from "../components/";
 
-export const action = ()=>{
-	console.log('Submit al formulario');
-}
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const datos = Object.fromEntries(formData);
+};
 export const Register = () => {
   return (
-    <div className='container__general'>
+    <div className="container__general">
       <h1>Nuevo Usuario</h1>
       <p>Llena todos los campos para registrar un nuevo usuario</p>
-      <Form method='post' className="form__container">
+      <Form method="post" className="form__container">
         <FormRegister />
         <input
           className="button__register"

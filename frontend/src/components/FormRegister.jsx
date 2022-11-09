@@ -1,10 +1,13 @@
-import React from 'react'
+
+
+
 
 export const FormRegister = () => {
+	
 	return (
 		<>
 		<div>
-		<div className='form__container--campo'>
+		<div  className='form__container--campo'>
 				<label className='input__form' htmlFor="user">Usuario:</label>
 				<input
           required
