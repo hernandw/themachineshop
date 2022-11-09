@@ -7,7 +7,7 @@ const initialForm = {
  password: '',
 };
 
-export const useLoginForm = () => {
+export const useLoginForm = (setModal, setUser) => {
  const [form, setForm] = useState(initialForm);
  const [errors, setErrors] = useState({});
  const [loading, setLoading] = useState(false);
@@ -94,10 +94,14 @@ export const useLoginForm = () => {
      password: form.password,
     });
 
-    const response = request;
+    const response = request.data;
     navigate('/');
-    console.log(response);
+    setModal(false);
+    setUser(response.username);
+    window.localStorage.setItem('loggedAppUser', JSON.stringify(response));
    } catch (error) {
+    console.error(error);
+    setLoading(false);
     const { status } = error.response;
     const { message } = error.response.data;
     if (status === 403) setResponseMessage(message);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLoginForm } from "./hooks/useLoginForm";
 import cerrarBTN from "../assets/icons/cerrar.svg";
 
-import { Input } from "./login/Input"
+import { Input } from './login/Input';
 
 export const Modal = ({ setModal, animarModal, setAnimarModal }) => {
   const onHandle = () => {

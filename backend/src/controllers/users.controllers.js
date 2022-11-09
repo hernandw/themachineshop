@@ -1,6 +1,7 @@
 import { pool } from '../config/mysql.js';
 import jwt from 'jsonwebtoken';
 import { JWTSECRET } from '../config/config.js';
+import { serialize } from 'cookie';
 
 export const signUp = async (req, res) => {
  const { username, email, password, roles } = req.body;
@@ -41,31 +42,28 @@ export const signIn = async (req, res) => {
    const { id_user, username, email, roles } = rows[0];
 
    if (comparePasswords(user, password)) {
-    jwt.sign(
-     { id_user, username, email, roles },
-     JWTSECRET,
-     { expiresIn: expireTime },
-     (err, token) => {
-      res.json({
-       token,
-       message: 'Welcome',
-      });
-     }
-    );
+    const token = jwt.sign({ id_user, username, email, roles }, JWTSECRET, {
+     expiresIn: expireTime,
+    });
+
+    res.status(200).json({
+     token,
+     username,
+    });
    } else {
-    return res.json({
-     message: 'wrong password',
+    return res.status(403).json({
+     message: 'Contraseña incorrecta',
     });
    }
   } else {
-   return res.json({
-    message: 'user does not exist',
+   return res.status(403).json({
+    message: 'El usuario no existe',
    });
   }
  } catch (error) {
-  console.log(error)
+  console.log(error);
   return res.status(500).json({
-   message: 'Something goes wrong',
+   message: 'Algo salio mal',
   });
  }
 };
