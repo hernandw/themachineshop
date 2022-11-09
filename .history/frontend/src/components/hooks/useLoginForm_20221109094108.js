@@ -89,18 +89,15 @@ export const useLoginForm = (setModal, setUser) => {
    setLoading(true);
 
    try {
-    const request = await axios.post('http://localhost:5825/api/signIn', {
-     email: form.email,
-     password: form.password,
-    });
+    const request = await axios.post(
+     'https://e-commerceback-production.up.railway.app/api/signIn',
+     {
+      email: form.email,
+      password: form.password,
+     }
+    );
 
     const response = request.data;
-    if (request.data.roles === 'admin') {
-     window.localStorage.setItem('loggedAppUser', JSON.stringify(response));
-     setModal(false);
-     return navigate('/Admin');
-    }
-
     navigate('/');
     setModal(false);
     setUser(response.username);

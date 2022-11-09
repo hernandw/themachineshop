@@ -95,16 +95,11 @@ export const useLoginForm = (setModal, setUser) => {
     });
 
     const response = request.data;
-    if (request.data.roles === 'admin') {
-     window.localStorage.setItem('loggedAppUser', JSON.stringify(response));
-     setModal(false);
-     return navigate('/Admin');
-    }
-
     navigate('/');
     setModal(false);
     setUser(response.username);
     window.localStorage.setItem('loggedAppUser', JSON.stringify(response));
+    console.log(response);
    } catch (error) {
     console.error(error);
     setLoading(false);
