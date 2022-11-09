@@ -7,9 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
 export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
- const { products } = useContext(CartContext);
+ const { cart } = useContext(CartContext);
 
- console.log(products);
  const navigate = useNavigate();
 
  const onHandleModal = () => {
