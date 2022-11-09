@@ -1,12 +1,15 @@
-import React from 'react';
 import logo from '../assets/icons/logo.svg';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import { VscAccount } from 'react-icons/vsc';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
+ const { products } = useContext(CartContext);
+
+ console.log(products);
  const navigate = useNavigate();
 
  const onHandleModal = () => {
