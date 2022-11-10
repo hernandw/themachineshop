@@ -4,10 +4,12 @@ import '../App.css';
 import { VscAccount } from 'react-icons/vsc';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+import { TYPES } from '../actions/cartActions';
 import CartContext from '../context/CartContext';
+
 export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
- const { cart } = useContext(CartContext);
+ const { cart, dispatch } = useContext(CartContext);
 
  const navigate = useNavigate();
 
@@ -22,6 +24,10 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
   setUser(null);
   window.localStorage.removeItem('loggedAppUser');
  };
+
+ useEffect(() => {
+  dispatch({ type: TYPES.CLREAR_CART });
+ }, []);
 
  return (
   <div className='container'>

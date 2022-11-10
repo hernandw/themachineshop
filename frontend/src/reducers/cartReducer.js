@@ -70,6 +70,8 @@ export const cartInitialState = {
  cart: [],
 };
 
+const hiii = console.log('holaaa');
+
 export function cartReducer(state, action) {
  switch (action.type) {
   case TYPES.ADD_TO_CART: {
@@ -116,6 +118,9 @@ export function cartReducer(state, action) {
    };
   case TYPES.CLEAR_CART:
    return cartInitialState;
+
+  case TYPES.GET_CART:
+   return hiii;
 
   default:
    return state;
