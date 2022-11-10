@@ -9,7 +9,8 @@ import { TYPES } from '../actions/cartActions';
 import CartContext from '../context/CartContext';
 
 export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
- const { cart, dispatch } = useContext(CartContext);
+ const { state, dispatch } = useContext(CartContext);
+ const { cart } = state;
 
  const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
  };
 
  useEffect(() => {
-  dispatch({ type: TYPES.CLREAR_CART });
+  dispatch({ type: TYPES.CLEAR_CART });
  }, []);
 
  return (
@@ -50,14 +51,24 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
       <span onClick={() => logOut()}>
        <VscAccount size={35} />
       </span>
-      <AiOutlineShoppingCart size={35} onClick={() => navigate('/cart')} />
+      <div className='cart' onClick={() => navigate('/cart')}>
+       <AiOutlineShoppingCart size={35} />
+       <span className='badge'>
+        {cart.reduce((acc, item) => acc + item.quantity, 0)}
+       </span>
+      </div>
      </div>
     ) : (
      <div className='profile'>
       <button className='header__button-login' onClick={onHandleModal}>
        Login
       </button>
-      <AiOutlineShoppingCart size={35} onClick={() => navigate('/cart')} />
+      <div className='cart' onClick={() => navigate('/cart')}>
+       <AiOutlineShoppingCart size={35} />
+       <span className='badge'>
+        {cart.reduce((acc, item) => acc + item.quantity, 0)}
+       </span>
+      </div>
      </div>
     )}
    </div>
