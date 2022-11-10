@@ -1,0 +1,22 @@
+{
+	"users" : [
+		{
+			"id": 1,
+			"user": "hernandw",
+			"email": "juan@correo.com",
+			"rol": 1
+		},
+		{
+			"id": 2,
+			"user": "hernandf",
+			"email": "fabiana@correo.com",
+			"rol": 2
+		},
+		{
+			"id": 3,
+			"user": "yessaleja",
+			"email": "yessenia@correo.com",
+			"rol": 2
+		}
+	]
+}
