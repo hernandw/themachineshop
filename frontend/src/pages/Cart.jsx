@@ -3,7 +3,8 @@ import { TYPES } from '../actions/cartActions';
 import CartContext from '../context/CartContext';
 CartContext;
 export function Cart() {
- const { dispatch, cart } = useContext(CartContext);
+ const { dispatch, state } = useContext(CartContext);
+ const { cart } = state;
 
  const addToCart = (id) => {
   dispatch({ type: TYPES.ADD_TO_CART, payload: id });
@@ -35,16 +36,23 @@ export function Cart() {
    </h2>
    <article className='box'>
     <button onClick={clearCart}>Limpiar Carrito</button>
-    {cart.map((product) => (
-     <div className='card' key={product.id}>
-      <div>
-       <img src={product.img} />
-       <p className='card__title'>{product.name}</p>
-       <p className='card__price'>{formateado(product.price)}</p>
-       <p>cantidad: {product.quantity}</p>
-      </div>
-     </div>
-    ))}
+    {cart.length > 0
+     ? cart.map((product) => (
+        <div className='card' key={product.id}>
+         <div>
+          <button onClick={() => delFromCart(product.id, true)}>
+           eliminar producto
+          </button>
+          <img src={product.img} />
+          <p className='card__title'>{product.name}</p>
+          <p className='card__price'>{formateado(product.price)}</p>
+          <button onClick={() => delFromCart(product.id)}>-</button>
+          <p>cantidad: {product.quantity}</p>
+          <button onClick={() => addToCart(product.id)}>+</button>
+         </div>
+        </div>
+       ))
+     : 'tu carrito esta vacio!'}
    </article>
   </>
  );
