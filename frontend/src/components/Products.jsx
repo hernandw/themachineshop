@@ -1,16 +1,9 @@
-import React from "react";
-import { useState } from "react";
-import lampara from "../assets/images/lampara.jpeg";
-import lampara2 from "../assets/images/lampara2.jpeg";
-import lampara3 from "../assets/images/lampara3.jpeg";
-import lampara4 from "../assets/images/lampara4.jpeg";
-import lampara5 from "../assets/images/lampara5.jpeg";
-import lampara6 from "../assets/images/lampara6.jpeg";
-import lampara7 from "../assets/images/lampara7.jpeg";
-import lampara8 from "../assets/images/lampara8.jpeg";
-import lampara9 from "../assets/images/lampara9.jpeg";
+import { useContext } from 'react';
+import { TYPES } from '../actions/cartActions';
+import CartContext from '../context/CartContext';
 
 export const Products = () => {
+<<<<<<< HEAD
 	const [product, setProduct] = useState([
 		{
 			id: 1,
@@ -93,4 +86,38 @@ export const Products = () => {
 			})}
 		</div>
 	);
+=======
+ const { dispatch, products } = useContext(CartContext);
+
+ const addToCart = (id) => {
+  dispatch({ type: TYPES.ADD_TO_CART, payload: id });
+ };
+
+ const formateado = (number) => {
+  return number.toLocaleString('ES-es', {
+   style: 'currency',
+   currency: 'USD',
+  });
+ };
+
+ return (
+  <div className='container__products'>
+   {products.map((product) => {
+    return (
+     <div className='card' key={product.id}>
+      <div>
+       <img src={product.img} />
+       <p className='card__title'>{product.name}</p>
+       <p className='card__price'>{formateado(product.price)}</p>
+       <button className='card__button'>Ver producto</button>
+       <button className='card__button' onClick={() => addToCart(product.id)}>
+        Agregar al carrito
+       </button>
+      </div>
+     </div>
+    );
+   })}
+  </div>
+ );
+>>>>>>> 1a949805bc18bc0616ce2e921aa20156e17ae316
 };

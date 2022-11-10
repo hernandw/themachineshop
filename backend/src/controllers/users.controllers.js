@@ -1,7 +1,6 @@
 import { pool } from '../config/mysql.js';
 import jwt from 'jsonwebtoken';
 import { JWTSECRET } from '../config/config.js';
-import { serialize } from 'cookie';
 
 export const signUp = async (req, res) => {
  const { username, email, password, roles } = req.body;
@@ -49,6 +48,7 @@ export const signIn = async (req, res) => {
     res.status(200).json({
      token,
      username,
+     roles,
     });
    } else {
     return res.status(403).json({
