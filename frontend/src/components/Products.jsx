@@ -23,7 +23,7 @@ export const Products = () => {
     ? products.map((product) => {
        return (
         <div className='card' key={product.id}>
-         <div>
+         <div className='insideCard'>
           <img src={product.img} />
           <p className='card__title'>{product.name}</p>
           <p className='card__price'>{formateado(product.price)}</p>

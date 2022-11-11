@@ -649,3 +649,12 @@ span {
   padding: 30px 450px;
  }
 }
+
+.insideCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card {
+  height: 300px;
+}
