@@ -8,6 +8,7 @@ import {
  Users,
  ProductAdd,
  loader as usersLoader,
+ loaderProductos as productsLoader
 } from './components/';
 
 import {
@@ -78,6 +79,7 @@ const router = createBrowserRouter([
    {
     path: '/admin/products',
     element: <ProductAdd />,
+    loader: productsLoader
    },
   ],
  },
