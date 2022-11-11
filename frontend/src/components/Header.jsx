@@ -4,10 +4,13 @@ import '../App.css';
 import { VscAccount } from 'react-icons/vsc';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
+import { TYPES } from '../actions/cartActions';
 import CartContext from '../context/CartContext';
+
 export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
- const { cart } = useContext(CartContext);
+ const { state, dispatch } = useContext(CartContext);
+ const { cart } = state;
 
  const navigate = useNavigate();
 
@@ -22,6 +25,10 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
   setUser(null);
   window.localStorage.removeItem('loggedAppUser');
  };
+
+ useEffect(() => {
+  dispatch({ type: TYPES.CLEAR_CART });
+ }, []);
 
  return (
   <div className='container'>
@@ -44,14 +51,24 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
       <span onClick={() => logOut()}>
        <VscAccount size={35} />
       </span>
-      <AiOutlineShoppingCart size={35} onClick={() => navigate('/cart')} />
+      <div className='cart' onClick={() => navigate('/cart')}>
+       <AiOutlineShoppingCart size={35} />
+       <span className='badge'>
+        {cart.reduce((acc, item) => acc + item.quantity, 0)}
+       </span>
+      </div>
      </div>
     ) : (
      <div className='profile'>
       <button className='header__button-login' onClick={onHandleModal}>
        Login
       </button>
-      <AiOutlineShoppingCart size={35} onClick={() => navigate('/cart')} />
+      <div className='cart' onClick={() => navigate('/cart')}>
+       <AiOutlineShoppingCart size={35} />
+       <span className='badge'>
+        {cart.reduce((acc, item) => acc + item.quantity, 0)}
+       </span>
+      </div>
      </div>
     )}
    </div>
