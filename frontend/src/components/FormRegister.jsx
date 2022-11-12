@@ -1,4 +1,9 @@
+import { useState } from "react";
+import {useRef} from 'react';
+
 export const FormRegister = () => {
+	const [rol, setRol] = useState(1)
+	const ref = useRef(null); 
 	return (
 		<>
 		
@@ -50,6 +55,10 @@ export const FormRegister = () => {
 						name='password2'
 						placeholder='Repita su contraseña'
 					/>
+				</div>
+				<div>
+					<input ref={ref} className="rol" type="number" name="rol" defaultValue={rol}/>
+
 				</div>
 			</div>
 		</>

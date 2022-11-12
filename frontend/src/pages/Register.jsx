@@ -1,5 +1,6 @@
-import { Form, useActionData } from "react-router-dom";
+import { Form, redirect, useActionData } from "react-router-dom";
 import { FormRegister, Errores } from "../components/";
+import { addUser } from '../data/GetUsers'
 
 export const action = async ({ request }) => {
 	const formData = await request.formData();
@@ -25,6 +26,8 @@ export const action = async ({ request }) => {
 	if (Object.keys(errores).length) {
 		return errores;
 	}
+	await addUser(datos)
+	return redirect('/admin/users')
 };
 export const Register = () => {
 	const errores = useActionData();

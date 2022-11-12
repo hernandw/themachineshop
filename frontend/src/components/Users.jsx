@@ -1,29 +1,11 @@
 import { useLoaderData } from "react-router-dom";
 import { User } from "./User";
+import { getUsers } from "../data/GetUsers";
 
 export const loader = () => {
-	const users = [
-		{
-			id: 1,
-			user: "hernandw",
-			email: "juan@correo.com",
-			rol: 1
-		},
-		{
-			id: 2,
-			user: "hernandf",
-			email: "fabiana@correo.com",
-			rol: 2
-		},
-		{
-			id: 3,
-			user: "yessaleja",
-			email: "yessenia@correo.com",
-			rol: 2
-		},
-	];
+	const usersAll =  getUsers();
 
-	return users;
+	return usersAll;
 };
 
 export const Users = () => {
@@ -39,7 +21,7 @@ export const Users = () => {
 						<tr>
 							<th className='user'>Usuario</th>
 							<th className='email'>Correo</th>
-							<th className='rol'>Rol</th>
+							<th>Rol</th>
 							<th>Acción</th>
 						</tr>
 					</thead>

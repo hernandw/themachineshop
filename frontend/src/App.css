@@ -118,6 +118,10 @@ body {
  border: none;
 }
 
+.rol {
+  display: none;
+}
+
 /* Fin del Header */
 
 /* Formulario de Login */

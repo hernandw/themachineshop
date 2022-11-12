@@ -1,22 +1,60 @@
 {
-	"users" : [
-		{
-			"id": 1,
-			"user": "hernandw",
-			"email": "juan@correo.com",
-			"rol": 1
-		},
-		{
-			"id": 2,
-			"user": "hernandf",
-			"email": "fabiana@correo.com",
-			"rol": 2
-		},
-		{
-			"id": 3,
-			"user": "yessaleja",
-			"email": "yessenia@correo.com",
-			"rol": 2
-		}
-	]
+  "users": [
+    {
+      "id": 1,
+      "user": "hernandw",
+      "email": "juan@correo.com",
+      "rol": 1
+    },
+    {
+      "id": 2,
+      "user": "hernandf",
+      "email": "fabiana@correo.com",
+      "rol": 2
+    },
+    {
+      "id": 3,
+      "user": "yessaleja",
+      "email": "yessenia@correo.com",
+      "rol": 2
+    },
+    {
+      "id": 4,
+      "user": "pamelac",
+      "email": "pamelac@correo.com",
+      "rol": 3
+    },
+    {
+      "user": "andrea",
+      "email": "andrea@gmail.com",
+      "password": "123456",
+      "password2": "123456",
+      "rol": 1,
+      "id": 5
+    },
+    {
+      "user": "pedro",
+      "email": "pedro@gmail.com",
+      "password": "123456",
+      "password2": "123456",
+      "rol": "1",
+      "id": 6
+    },
+    {
+      "user": "Natalia",
+      "email": "natalia@gmail.com",
+      "password": "123456",
+      "password2": "123456",
+      "rol": "1",
+      "id": 7
+    },
+    {
+      "user": "jazmin",
+      "email": "jazmin@gmail.com",
+      "password": "123456",
+      "password2": "123456",
+      "rol": "1",
+      "id": 8
+    }
+  ]
 }

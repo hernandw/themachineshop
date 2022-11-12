@@ -6,7 +6,7 @@ import {
  Products,
  Admin,
  Users,
- ProductAdd,
+ ProductAdd,ErrorPage,
  loader as usersLoader,
  loaderProductos as productsLoader
 } from './components/';
@@ -69,12 +69,14 @@ const router = createBrowserRouter([
   children: [
    {
     index: true,
-    element: <h3>Inicio</h3>,
+    element: <h3>Inicio</h3>
+    
    },
    {
     path: '/admin/users',
     element: <Users />,
     loader: usersLoader,
+    errorElement: <ErrorPage  />
    },
    {
     path: '/admin/products',
