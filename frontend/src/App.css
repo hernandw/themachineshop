@@ -8,6 +8,7 @@
  --background: #f5f5f5;
  --black: #000;
  --purple: #abb5f7;
+ --red: #bc0e0e
 }
 
 * {
@@ -19,6 +20,17 @@
 body {
  font-family: 'Montserrat', sans-serif;
  background-color: var(--background);
+}
+
+.error {
+  text-align: center;
+  background-color: var(--red);
+  color: var(--white);
+  margin: 5px auto;
+  font-weight: bold;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 5px;
 }
 
 .login__title {

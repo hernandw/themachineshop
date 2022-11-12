@@ -1,6 +1,7 @@
 export const FormRegister = () => {
 	return (
 		<>
+		
 			<div>
 				<div className='form__container--campo'>
 					<label className='input__form' htmlFor='user'>

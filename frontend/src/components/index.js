@@ -7,3 +7,4 @@ export * from './Profile';
 export * from './Users';
 export * from './FormRegister';
 export * from './Loader';
+export * from './Errores'
