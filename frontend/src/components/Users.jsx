@@ -40,6 +40,7 @@ export const Users = () => {
 							<th className='user'>Usuario</th>
 							<th className='email'>Correo</th>
 							<th className='rol'>Rol</th>
+							<th>Acción</th>
 						</tr>
 					</thead>
 					<tbody>

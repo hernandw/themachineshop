@@ -37,6 +37,7 @@ export const ProductAdd = () => {
 							<th className='img'>Imagen</th>
 							<th className='name'>Nombre</th>
 							<th className='price'>Precio</th>
+							<th>Acción</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,6 +47,10 @@ export const ProductAdd = () => {
 									<td>{producto.img}</td>
 									<td>{producto.name}</td>
 									<td>{producto.price}</td>
+									<td>
+				<button className="buttonEdit">Editar</button>
+				<button className="buttonDelete">Eliminar</button>
+			</td>
 								</tr>
 							))
 						}
