@@ -748,3 +748,30 @@ span {
 	opacity: 0;	
 	transform: scale(0.1, 1);
 }
+
+.cardCart{
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 4px solid black
+}
+
+.cardCartMoreOrLess{
+  display: flex;
+}
+
+.buttonMoreOrLess{
+  margin: 0 10px 0 10px
+}
+
+.cardCartImg{
+  height: 100px;
+  width: 100px;
+}
+
+.subTotal{
+  display: flex;
+  justify-content: end;
+  margin-right: 7.5%;
+}

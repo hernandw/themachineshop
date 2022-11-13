@@ -30,29 +30,36 @@ export function Cart() {
  };
  return (
   <>
+   <div>
    <h3>Carrito</h3>
-   <h2>
-    Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}.00
-   </h2>
+   </div>
    <article className='box'>
     <button onClick={clearCart}>Limpiar Carrito</button>
     {cart.length > 0
      ? cart.map((product) => (
-        <div className='card' key={product.id}>
-         <div>
-          <button onClick={() => delFromCart(product.id, true)}>
+        <div className='cardCart' key={product.id}>
+         <div>  
+          <img className='cardCartImg' src={product.img} />
+          </div>
+          <p className='card__title'>{product.name}</p>
+          <button onClick={() => { delFromCart(product.id, true);
+          swal("Producto eliminado del carrito","","success")}}>
            eliminar producto
           </button>
-          <img src={product.img} />
-          <p className='card__title'>{product.name}</p>
+          <div className='cardCartMoreOrLess'>
+          <button className='buttonMoreOrLess' onClick={() => delFromCart(product.id)}>-</button>
+          <p>{product.quantity}</p>
+          <button className='buttonMoreOrLess' onClick={() => addToCart(product.id)}>+</button>
+          </div>
+          <div className='cardCartPrice'>
           <p className='card__price'>{formateado(product.price)}</p>
-          <button onClick={() => delFromCart(product.id)}>-</button>
-          <p>cantidad: {product.quantity}</p>
-          <button onClick={() => addToCart(product.id)}>+</button>
-         </div>
+          </div>
         </div>
        ))
      : 'tu carrito esta vacio!'}
+     <h3 className='subTotal'>
+      Sub-Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}.00
+     </h3>
    </article>
   </>
  );
