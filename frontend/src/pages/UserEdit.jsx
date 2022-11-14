@@ -1,8 +1,19 @@
-import { Form, redirect, useActionData } from "react-router-dom";
+import { getUser, updateUser } from "../data/GetUsers";
+import { Form, redirect, useActionData, useLoaderData } from "react-router-dom";
 import { FormRegister, Errores } from "../components/";
-import { addUser } from "../data/GetUsers";
 
-export const action = async ({ request }) => {
+export const loader = async ({ params }) => {
+	const user = await getUser(params.userId);
+	if (Object.values(user).length === 0) {
+		throw new Response("", {
+			status: 404,
+			statusText: "El Cliente no fue encontrado"
+		});
+	}
+	return user;
+};
+
+export const actionUser = async ({ request, params }) => {
 	const formData = await request.formData();
 	const datos = Object.fromEntries(formData);
 	const email = formData.get("email");
@@ -26,26 +37,31 @@ export const action = async ({ request }) => {
 	if (Object.keys(errores).length) {
 		return errores;
 	}
-	await addUser(datos);
-	return redirect("/admin/users");
+	//Actualiza el usuario
+	await updateUser(params.userId, datos)
+	return redirect('/admin/users')
 };
-export const Register = () => {
-	const errores = useActionData();
-	return (
+
+export const UserEdit = () => {
+	const user = useLoaderData()
+	const errores = useActionData()
+	
+	return <>
+		
 		<div className='container__general'>
-			<h1>Nuevo Usuario</h1>
-			<p>Llena todos los campos para registrar un nuevo usuario</p>
-			<Form method='post' noValidate className='form__container'>
+			<h1>Editar Usuario</h1>
+			<p>Podrás modificar los datos de un usuario</p>
+			<Form method='post' noValidate className='form__container' >
 				{errores?.length &&
 					errores.map((error, i) => <Errores key={i}>{error}</Errores>)}
-				<FormRegister />
+				<FormRegister user={user} />
 
 				<input
 					className='button__register'
 					type='submit'
-					value='Registrar Usuario'
+					value='Editar Usuario'
 				/>
 			</Form>
 		</div>
-	);
+</>;
 };

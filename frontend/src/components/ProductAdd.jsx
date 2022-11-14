@@ -1,28 +1,10 @@
 import { useLoaderData } from 'react-router-dom'
+import { getProducts } from '../data/GetProducts';
 
 
 export const loaderProductos = ()=>{
-	const products = [
-		{
-			id: 1,
-			img: 'abc',
-			name: 'Lampara XYZ',
-			price: 20
-		},
-		{
-			id: 2,
-			img: 'abc',
-			name: 'Lampara ABC',
-			price: 18
-		},
-		{
-			id: 3,
-			img: 'abc',
-			name: 'Lampara DEF',
-			price: 25
-		}
-	]
-	return products
+	const productsAll = getProducts()
+	return productsAll
 } 
 
 export const ProductAdd = () => {
@@ -44,7 +26,7 @@ export const ProductAdd = () => {
 						{
 							productsAll.map(producto =>(
 								<tr key={producto.id}>
-									<td>{producto.img}</td>
+									<td><img className='products__img' src={producto.imagen} alt={producto.name} /></td>
 									<td>{producto.name}</td>
 									<td>{producto.price}</td>
 									<td>

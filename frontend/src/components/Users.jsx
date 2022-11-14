@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { User } from "./User";
-import { getUsers } from "../data/GetUsers";
+import { getUsers,  } from "../data/GetUsers";
 
 export const loader = () => {
 	const usersAll =  getUsers();
@@ -37,3 +37,5 @@ export const Users = () => {
 		</>
 	);
 };
+
+

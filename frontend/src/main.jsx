@@ -8,7 +8,8 @@ import {
  Users,
  ProductAdd,ErrorPage,
  loader as usersLoader,
- loaderProductos as productsLoader
+ loaderProductos as productsLoader,
+ 
 } from './components/';
 
 import {
@@ -18,8 +19,12 @@ import {
  Privacy,
  Register,
  Work,
+ UserEdit,
  action as NewUser,
+ loader as EditUserLoader,
  Cart,
+ 
+ actionUser as EditarUsuarioAction
 } from './pages/';
 
 const router = createBrowserRouter([
@@ -85,6 +90,14 @@ const router = createBrowserRouter([
    },
   ],
  },
+ {
+  path: '/admin/user/:userId/edit',
+  element: <UserEdit  />,
+  loader: EditUserLoader,
+  action: EditarUsuarioAction,
+  errorElement: <ErrorPage  />
+ }
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

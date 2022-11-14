@@ -1,9 +1,10 @@
 import { useState } from "react";
-import {useRef} from 'react';
 
-export const FormRegister = () => {
-	const [rol, setRol] = useState(1)
-	const ref = useRef(null); 
+
+export const FormRegister = ({user}) => {
+	
+	const [rol, setRol] = useState('user')
+	
 	return (
 		<>
 		
@@ -16,8 +17,9 @@ export const FormRegister = () => {
 						required
 						className='inputs__login'
 						type='text'
-						name='user'
+						name='username'
 						placeholder='Escriba su nombre de usuario'
+						defaultValue={user?.username}
 					/>
 				</div>
 				<div className='form__container--campo'>
@@ -30,6 +32,7 @@ export const FormRegister = () => {
 						type='email'
 						name='email'
 						placeholder='Escriba su email'
+						defaultValue={user?.email}
 					/>
 				</div>
 				<div className='form__container--campo'>
@@ -42,6 +45,7 @@ export const FormRegister = () => {
 						type='password'
 						name='password'
 						placeholder='Escriba su contraseña'
+						defaultValue={user?.password}
 					/>
 				</div>
 				<div className='form__container--campo'>
@@ -54,10 +58,11 @@ export const FormRegister = () => {
 						type='password'
 						name='password2'
 						placeholder='Repita su contraseña'
+						defaultValue={user?.password}
 					/>
 				</div>
 				<div>
-					<input ref={ref} className="rol" type="number" name="rol" defaultValue={rol}/>
+					<input  className="rol" type="text" name="roles" defaultValue={rol}/>
 
 				</div>
 			</div>

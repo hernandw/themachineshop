@@ -5,7 +5,7 @@ export const ErrorPage = () => {
 	return (
 		<div>
 		<h1>Hubo un error</h1>
-			<div>{error.message}</div>
+			<div>{error.statusText || error.message}</div>
 		</div>
 	)
 }

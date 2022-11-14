@@ -122,6 +122,10 @@ body {
   display: none;
 }
 
+.products__img {
+  width: 50px;
+}
+
 /* Fin del Header */
 
 /* Formulario de Login */

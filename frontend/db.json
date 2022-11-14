@@ -1,60 +1,56 @@
 {
   "users": [
     {
-      "id": 1,
-      "user": "hernandw",
-      "email": "juan@correo.com",
-      "rol": 1
-    },
-    {
-      "id": 2,
-      "user": "hernandf",
-      "email": "fabiana@correo.com",
-      "rol": 2
-    },
-    {
-      "id": 3,
-      "user": "yessaleja",
-      "email": "yessenia@correo.com",
-      "rol": 2
-    },
-    {
-      "id": 4,
-      "user": "pamelac",
-      "email": "pamelac@correo.com",
-      "rol": 3
-    },
-    {
-      "user": "andrea",
-      "email": "andrea@gmail.com",
+      "username": "morena4",
+      "email": "susana@gmail.com",
       "password": "123456",
       "password2": "123456",
-      "rol": 1,
-      "id": 5
+      "roles": "user",
+      "id": 9
     },
     {
-      "user": "pedro",
-      "email": "pedro@gmail.com",
+      "username": "Pablo",
+      "email": "roberto@gmail.com",
       "password": "123456",
       "password2": "123456",
-      "rol": "1",
-      "id": 6
+      "roles": "user",
+      "id": 10
     },
     {
-      "user": "Natalia",
-      "email": "natalia@gmail.com",
-      "password": "123456",
-      "password2": "123456",
-      "rol": "1",
-      "id": 7
-    },
-    {
-      "user": "jazmin",
+      "username": "jazmin",
       "email": "jazmin@gmail.com",
       "password": "123456",
       "password2": "123456",
-      "rol": "1",
-      "id": 8
+      "roles": "user",
+      "id": 11
+    },
+    {
+      "username": "robertiño",
+      "email": "robertada@gmail.com",
+      "password": "23456",
+      "password2": "23456",
+      "roles": "user",
+      "id": 12
+    }
+  ],
+  "products": [
+    {
+      "imagen": "/images/lampara.jpeg",
+      "name": "Lamapara XYZ",
+      "price": 18,
+      "id": 1
+    },
+    {
+      "imagen": "/images/lampara2.jpeg",
+      "name": "Lampara ABC",
+      "price": 28,
+      "id": 2
+    },
+    {
+      "imagen": "/images/lampara3.jpeg",
+      "name": "Lampara CDE",
+      "price": 15,
+      "id": 3
     }
   ]
 }
