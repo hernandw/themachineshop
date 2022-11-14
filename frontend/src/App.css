@@ -754,7 +754,7 @@ span {
   margin-top: 8px;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 4px solid black
+  border-bottom: 2px solid black
 }
 
 .cardCartMoreOrLess{
@@ -773,5 +773,5 @@ span {
 .subTotal{
   display: flex;
   justify-content: end;
-  margin-right: 7.5%;
+  margin-right: 9%;
 }

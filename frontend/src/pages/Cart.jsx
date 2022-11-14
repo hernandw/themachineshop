@@ -34,7 +34,8 @@ export function Cart() {
    <h3>Carrito</h3>
    </div>
    <article className='box'>
-    <button onClick={clearCart}>Limpiar Carrito</button>
+    <button onClick={() => {clearCart() ;
+    swal("Carrito vaciado","","success")}}>Limpiar Carrito</button>
     {cart.length > 0
      ? cart.map((product) => (
         <div className='cardCart' key={product.id}>
