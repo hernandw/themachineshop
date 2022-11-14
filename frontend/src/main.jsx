@@ -6,8 +6,10 @@ import {
  Products,
  Admin,
  Users,
- ProductAdd,
+ ProductAdd,ErrorPage,
  loader as usersLoader,
+ loaderProductos as productsLoader,
+ 
 } from './components/';
 
 import {
@@ -17,8 +19,12 @@ import {
  Privacy,
  Register,
  Work,
+ UserEdit,
  action as NewUser,
+ loader as EditUserLoader,
  Cart,
+ 
+ actionUser as EditarUsuarioAction
 } from './pages/';
 
 const router = createBrowserRouter([
@@ -68,19 +74,30 @@ const router = createBrowserRouter([
   children: [
    {
     index: true,
-    element: <h3>Inicio</h3>,
+    element: <h3>Inicio</h3>
+    
    },
    {
     path: '/admin/users',
     element: <Users />,
     loader: usersLoader,
+    errorElement: <ErrorPage  />
    },
    {
     path: '/admin/products',
     element: <ProductAdd />,
+    loader: productsLoader
    },
   ],
  },
+ {
+  path: '/admin/user/:userId/edit',
+  element: <UserEdit  />,
+  loader: EditUserLoader,
+  action: EditarUsuarioAction,
+  errorElement: <ErrorPage  />
+ }
+ 
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

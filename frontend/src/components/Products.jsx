@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { TYPES } from '../actions/cartActions';
 import CartContext from '../context/CartContext';
+import swal from 'sweetalert';
+// https://sweetalert.js.org - npm install sweetalert --save
 
 export const Products = () => {
  const { dispatch, state } = useContext(CartContext);
@@ -23,14 +25,16 @@ export const Products = () => {
     ? products.map((product) => {
        return (
         <div className='card' key={product.id}>
-         <div>
+         <div className='insideCard'>
           <img src={product.img} />
           <p className='card__title'>{product.name}</p>
           <p className='card__price'>{formateado(product.price)}</p>
           <button className='card__button'>Ver producto</button>
           <button
            className='card__button'
-           onClick={() => addToCart(product.id)}>
+           onClick={() => {
+            addToCart(product.id);
+            swal("Producto agregado al carrito","","success")}}>
            Agregar al carrito
           </button>
          </div>
