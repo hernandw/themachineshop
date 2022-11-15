@@ -775,3 +775,80 @@ span {
   justify-content: end;
   margin-right: 9%;
 }
+
+.contactContainer{
+  display: flex;
+  justify-content: space-around;
+}
+
+.contactImg{
+  height: 44px;
+  width: 44px;
+}
+
+.firstNameAndLastName{
+  display: flex;
+}
+
+.getInTouch{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.contactIcon{
+  padding-top: 5%;
+}
+
+.iconAnchor{
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 12px;
+  margin-left: 8px;
+  margin-bottom: 0px;
+  padding-left: 4px;
+}
+
+
+.contactForm{
+  height: 50%;
+  width: 40%;
+  
+  padding-top: 24px;
+  padding-bottom: 55px;
+  padding-left: 39px;
+  padding-right: 32px;
+  margin-top: 0px;
+  margin-bottom: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #FFFFFF;
+  border: 1px solid #E7E8F1;
+  border-radius: 36px;
+  position: relative;
+  box-shadow: 0px 8px 18px rgb(31 37 89 / 5%);
+} 
+
+.inputContact, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.buttonContact {
+  background-color: rgb(41, 40, 40);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  
+}
+
+fieldset{
+  text-decoration: none;
+}
