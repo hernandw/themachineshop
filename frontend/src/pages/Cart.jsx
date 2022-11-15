@@ -31,36 +31,55 @@ export function Cart() {
  return (
   <>
    <div>
-   <h3>Carrito</h3>
+    <h3>Carrito</h3>
    </div>
    <article className='box'>
-    <button onClick={() => {clearCart() ;
-    swal("Carrito vaciado","","success")}}>Limpiar Carrito</button>
+    <button
+     /*   onClick={() => {
+      clearCart();
+      swal('Carrito vaciado', '', 'success');
+     }} */
+     onClick={() => clearCart()}>
+     Limpiar Carrito
+    </button>
     {cart.length > 0
      ? cart.map((product) => (
-        <div className='cardCart' key={product.id}>
-         <div>  
-          <img className='cardCartImg' src={product.img} />
-          </div>
-          <p className='card__title'>{product.name}</p>
-          <button onClick={() => { delFromCart(product.id, true);
-          swal("Producto eliminado del carrito","","success")}}>
-           eliminar producto
+        <div className='cardCart' key={product.id_product}>
+         <div>
+          <img className='cardCartImg' src={product.product_image_url} />
+         </div>
+         <p className='card__title'>{product.product_name}</p>
+         <button
+          onClick={() => {
+           delFromCart(product.id_product, true);
+           swal('Producto eliminado del carrito', '', 'success');
+          }}>
+          eliminar producto
+         </button>
+         <div className='cardCartMoreOrLess'>
+          <button
+           className='buttonMoreOrLess'
+           onClick={() => delFromCart(product.id_product)}>
+           -
           </button>
-          <div className='cardCartMoreOrLess'>
-          <button className='buttonMoreOrLess' onClick={() => delFromCart(product.id)}>-</button>
           <p>{product.quantity}</p>
-          <button className='buttonMoreOrLess' onClick={() => addToCart(product.id)}>+</button>
-          </div>
-          <div className='cardCartPrice'>
-          <p className='card__price'>{formateado(product.price)}</p>
-          </div>
+          <button
+           className='buttonMoreOrLess'
+           onClick={() => addToCart(product.id_product)}>
+           +
+          </button>
+         </div>
+         <div className='cardCartPrice'>
+          <p className='card__price'>{formateado(product.product_price)}</p>
+         </div>
         </div>
        ))
      : 'tu carrito esta vacio!'}
-     <h3 className='subTotal'>
-      Sub-Total: ${cart.reduce((acc, item) => acc + item.price * item.quantity, 0)}.00
-     </h3>
+    <h3 className='subTotal'>
+     Sub-Total: $
+     {cart.reduce((acc, item) => acc + item.product_price * item.quantity, 0)}
+     .00
+    </h3>
    </article>
   </>
  );

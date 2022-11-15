@@ -24,11 +24,8 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
  const logOut = () => {
   setUser(null);
   window.localStorage.removeItem('loggedAppUser');
- };
-
- useEffect(() => {
   dispatch({ type: TYPES.CLEAR_CART });
- }, []);
+ };
 
  return (
   <div className='container'>

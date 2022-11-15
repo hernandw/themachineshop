@@ -70,12 +70,13 @@ export const signIn = async (req, res) => {
 
 export const getUsers = async (req, res) => {
  jwt.verify(req.token, JWTSECRET, async (error, authData) => {
-  if (error) {
+  if (error || authData.roles !== 'admin') {
+   console.log(error);
    res.sendStatus(403);
   } else {
    try {
-    const [rows] = await pool.query('SELECT username FROM Users');
-
+    const [rows] = await pool.query('SELECT username, email, roles FROM Users');
+    console.log(authData);
     res.json({ rows, authData });
    } catch (error) {
     return res.status(500).json({
