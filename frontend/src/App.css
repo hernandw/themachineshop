@@ -593,112 +593,14 @@ span {
  color: white;
 }
 
-@keyframes lds-ring {
- 0% {
-  transform: rotate(0deg);
- }
-
- 100% {
-  transform: rotate(360deg);
- }
-}
-
-@media (min-width: 600px) {
- .header__search {
-  width: 350px;
- }
-
- .container__products {
-  grid-template-columns: repeat(3, 1fr);
- }
-
- .card {
-  width: 224px;
-  height: 280px;
- }
-
- .container__footer {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
- }
-
- .container__general {
-  padding: 30px 100px;
- }
-
- .card__person-container {
-  grid-template-columns: repeat(3, 1fr);
- }
-
- .nav__label,
- .nav__input {
-  display: none;
- }
-
- .nav__menu {
-  flex-direction: row;
-  top: 0;
-  position: relative;
-  clip-path: circle(100% at center);
-  height: 80px;
-  background-color: var(--white);
-  padding: 30px;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
- }
-
- .nav__menu ul {
-  flex-direction: row;
-  gap: 20px;
-  justify-content: flex-end;
- }
-
- .buttonDelete, .buttonEdit {
-  width: 40%;
- }
-}
-
-@media (min-width: 1000px) {
- .header__search {
-  width: 500px;
- }
-
- .container__products {
-  grid-template-columns: repeat(4, 1fr);
- }
-
- .container__footer {
-  padding: 0 80px;
- }
-
- .card__person-container {
-  grid-template-columns: repeat(4, 1fr);
- }
-
- .container__general {
-  padding: 30px 250px;
- }
-}
-
-@media (min-width: 1300px) {
- .card__person-container {
-  grid-template-columns: repeat(5, 1fr);
- }
-
- .container__general {
-  padding: 30px 450px;
- }
-}
+/* Products cards and cart */
 
 .insideCard{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.card {
-  height: 300px;
-}
+
 
 .card__button {
 	color: #FFF;
@@ -776,9 +678,10 @@ span {
   margin-right: 9%;
 }
 
+/* Contacts */
 .contactContainer{
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
 }
 
 .contactImg{
@@ -786,14 +689,12 @@ span {
   width: 44px;
 }
 
-.firstNameAndLastName{
-  display: flex;
-}
-
 .getInTouch{
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-
+  align-items: center;
 }
 
 .contactIcon{
@@ -811,14 +712,14 @@ span {
 
 
 .contactForm{
-  height: 50%;
-  width: 40%;
+  height: 100%;
+  width: 100%;
   
   padding-top: 24px;
   padding-bottom: 55px;
   padding-left: 39px;
   padding-right: 32px;
-  margin-top: 0px;
+  margin-top: 10px;
   margin-bottom: 16px;
   margin-left: 0px;
   margin-right: 0px;
@@ -849,6 +750,109 @@ span {
   
 }
 
-fieldset{
-  text-decoration: none;
+@keyframes lds-ring {
+ 0% {
+  transform: rotate(0deg);
+ }
+
+ 100% {
+  transform: rotate(360deg);
+ }
 }
+
+@media (min-width: 600px) {
+ .header__search {
+  width: 350px;
+ }
+
+ .container__products {
+  grid-template-columns: repeat(3, 1fr);
+ }
+
+ .card {
+  width: 224px;
+  height: 300px;
+ }
+
+ .container__footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+ }
+
+ .container__general {
+  padding: 30px 100px;
+ }
+
+ .card__person-container {
+  grid-template-columns: repeat(3, 1fr);
+ }
+
+ .nav__label,
+ .nav__input {
+  display: none;
+ }
+
+ .nav__menu {
+  flex-direction: row;
+  top: 0;
+  position: relative;
+  clip-path: circle(100% at center);
+  height: 80px;
+  background-color: var(--white);
+  padding: 30px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+ }
+
+ .nav__menu ul {
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+ }
+
+ .buttonDelete, .buttonEdit {
+  width: 40%;
+}
+
+}
+
+@media (min-width: 1000px) {
+ .header__search {
+  width: 500px;
+ }
+
+ .container__products {
+  grid-template-columns: repeat(4, 1fr);
+ }
+
+ .container__footer {
+  padding: 0 80px;
+ }
+
+ .card__person-container {
+  grid-template-columns: repeat(4, 1fr);
+ }
+
+ .container__general {
+  padding: 30px 250px;
+ }
+
+ .contactContainer {
+  flex-direction: row;
+ }
+}
+
+@media (min-width: 1300px) {
+ .card__person-container {
+  grid-template-columns: repeat(5, 1fr);
+ }
+
+ .container__general {
+  padding: 30px 450px;
+ }
+
+}
+
+
+

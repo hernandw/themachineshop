@@ -11,7 +11,7 @@ export const Contact = () => {
 			<div className="contactIcon"><img className="contactImg" src={mail_icon}></img><a href="mailto:TheMachineShop@ecommerce.org"><span className="iconAnchor">TheMachineShop@ecommerce.org</span></a></div>
 			<div className="contactIcon"><img className="contactImg" src={phone_icon}></img>
 			<span className="iconAnchor"><a href="tel:(215)%77777-7777">(215) 777-7777</a></span></div>
-			<div className="contactIcon"><img className="contactImg" src={map_pin_icon}></img><span className="iconAnchor"><a href="https://goo.gl/maps/SevooSTr95YZe2ZB8">2535 Aramingo Ave, Philadelphia, PA 19125, Estados Unidos</a></span></div>
+			<div className="contactIcon"><img className="contactImg" src={map_pin_icon}></img><span className="iconAnchor"><a href="https://goo.gl/maps/SevooSTr95YZe2ZB8">2535 Aramingo Ave, Philadelphia</a></span></div>
 		</div>
 	</div>
 
