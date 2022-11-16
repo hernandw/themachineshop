@@ -89,7 +89,7 @@ export const useLoginForm = (setModal, setUser) => {
    setLoading(true);
 
    try {
-    const request = await axios.post(`http://localhost:3002/api/SignIn`, {
+    const request = await axios.post(`http://localhost:5825/api/SignIn`, {
      email: form.email,
      password: form.password,
     });
@@ -107,8 +107,12 @@ export const useLoginForm = (setModal, setUser) => {
     setUser(response.username);
     window.localStorage.setItem('loggedAppUser', JSON.stringify(response));
    } catch (error) {
-    console.error(error);
+    console.log(error.code);
     setLoading(false);
+
+    if (error.code === 'ERR_NETWORK') {
+     setResponseMessage('Error de conexion, intentelo de nuevo');
+    }
     const { status } = error.response;
     const { message } = error.response.data;
     if (status === 403) setResponseMessage(message);

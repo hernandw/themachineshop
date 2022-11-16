@@ -1,56 +1,56 @@
-import { useLoaderData } from "react-router-dom";
-import { getProducts } from "../data/GetProducts";
+import { useEffect, useState, useContext } from 'react';
 
-export const loaderProductos = () => {
-	const productsAll = getProducts();
-	return productsAll;
-};
+import CartContext from '../context/CartContext';
+
+//Para ejecutar una funcion antes de renderizar
+//podemos utilizar el hook useEffect
+/* export const loaderProductos = ()=>{
+	const productsAll = getProducts()
+	return productsAll
+}  */
 
 export const ProductAdd = () => {
-	const productsAll = useLoaderData();
-	console.log(productsAll);
+ //const productsAll = useLoaderData();
 
-	return (
-		<>
-			<h3 className='title__admin'>Administración de Productos</h3>
-			{productsAll.length ? (
-				<table className='container__users'>
-					<thead className='table__users'>
-						<tr>
-							<th className='img'>Imagen</th>
-							<th className='name'>Nombre</th>
-							<th className='price'>Precio</th>
-							<th>Creado</th>
-							<th>Categoria</th>
-							<th>cantidad</th>
-							<th>Descripcion</th>
-							<th>Acción</th>
-						</tr>
-					</thead>
-					<tbody>
-						{productsAll.map((p) => (
-							<tr key={p.id_product}>
-								<td>
-									<img className='products__img' src={p.product_image_url} alt='' />
-								</td>
-								<td>{p.product_name}</td>
-								<td>{p.product_price}</td>
-								<td>{p.product_creation_date}</td>
-								<td>{p.id_category}</td>
-								<td>{p.product_quantity}</td>
-								<td>{p.product_description}</td>
+ const { state } = useContext(CartContext);
+ const { products } = state;
 
-								<td>
-									<button className='buttonEdit'>Editar</button>
-									<button className='buttonDelete'>Eliminar</button>
-								</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
-			) : (
-				<p>No hay productos aún</p>
-			)}
-		</>
-	);
+ return (
+  <>
+   <h3 className='title__admin'>Administración de Productos</h3>
+   {products.length ? (
+    <table className='container__users'>
+     <thead className='table__users'>
+      <tr>
+       <th className='img'>Imagen</th>
+       <th className='name'>Nombre</th>
+       <th className='price'>Precio</th>
+       <th>Acción</th>
+      </tr>
+     </thead>
+     <tbody>
+      {products.map((producto) => (
+       <tr key={producto.id_product}>
+        <td>
+         <img
+          className='products__img'
+          src={producto.product_image_url}
+          alt={producto.product_name}
+         />
+        </td>
+        <td>{producto.product_name}</td>
+        <td>{producto.product_price}</td>
+        <td>
+         <button className='buttonEdit'>Editar</button>
+         <button className='buttonDelete'>Eliminar</button>
+        </td>
+       </tr>
+      ))}
+     </tbody>
+    </table>
+   ) : (
+    <p>No hay productos aún</p>
+   )}
+  </>
+ );
 };
