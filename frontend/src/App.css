@@ -621,112 +621,14 @@ span {
  color: white;
 }
 
-@keyframes lds-ring {
- 0% {
-  transform: rotate(0deg);
- }
-
- 100% {
-  transform: rotate(360deg);
- }
-}
-
-@media (min-width: 600px) {
- .header__search {
-  width: 350px;
- }
-
- .container__products {
-  grid-template-columns: repeat(3, 1fr);
- }
-
- .card {
-  width: 224px;
-  height: 280px;
- }
-
- .container__footer {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
- }
-
- .container__general {
-  padding: 30px 100px;
- }
-
- .card__person-container {
-  grid-template-columns: repeat(3, 1fr);
- }
-
- .nav__label,
- .nav__input {
-  display: none;
- }
-
- .nav__menu {
-  flex-direction: row;
-  top: 0;
-  position: relative;
-  clip-path: circle(100% at center);
-  height: 80px;
-  background-color: var(--white);
-  padding: 30px;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
- }
-
- .nav__menu ul {
-  flex-direction: row;
-  gap: 20px;
-  justify-content: flex-end;
- }
-
- .buttonDelete, .buttonEdit {
-  width: 40%;
- }
-}
-
-@media (min-width: 1000px) {
- .header__search {
-  width: 500px;
- }
-
- .container__products {
-  grid-template-columns: repeat(4, 1fr);
- }
-
- .container__footer {
-  padding: 0 80px;
- }
-
- .card__person-container {
-  grid-template-columns: repeat(4, 1fr);
- }
-
- .container__general {
-  padding: 30px 250px;
- }
-}
-
-@media (min-width: 1300px) {
- .card__person-container {
-  grid-template-columns: repeat(5, 1fr);
- }
-
- .container__general {
-  padding: 30px 450px;
- }
-}
+/* Products cards and cart */
 
 .insideCard{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.card {
-  height: 300px;
-}
+
 
 .card__button {
 	color: #FFF;
@@ -803,3 +705,182 @@ span {
   justify-content: end;
   margin-right: 9%;
 }
+
+/* Contacts */
+.contactContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.contactImg{
+  height: 44px;
+  width: 44px;
+}
+
+.getInTouch{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactIcon{
+  padding-top: 5%;
+}
+
+.iconAnchor{
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 12px;
+  margin-left: 8px;
+  margin-bottom: 0px;
+  padding-left: 4px;
+}
+
+
+.contactForm{
+  height: 100%;
+  width: 100%;
+  
+  padding-top: 24px;
+  padding-bottom: 55px;
+  padding-left: 39px;
+  padding-right: 32px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #FFFFFF;
+  border: 1px solid #E7E8F1;
+  border-radius: 36px;
+  position: relative;
+  box-shadow: 0px 8px 18px rgb(31 37 89 / 5%);
+} 
+
+.inputContact, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.buttonContact {
+  background-color: rgb(41, 40, 40);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  
+}
+
+@keyframes lds-ring {
+ 0% {
+  transform: rotate(0deg);
+ }
+
+ 100% {
+  transform: rotate(360deg);
+ }
+}
+
+@media (min-width: 600px) {
+ .header__search {
+  width: 350px;
+ }
+
+ .container__products {
+  grid-template-columns: repeat(3, 1fr);
+ }
+
+ .card {
+  width: 224px;
+  height: 300px;
+ }
+
+ .container__footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+ }
+
+ .container__general {
+  padding: 30px 100px;
+ }
+
+ .card__person-container {
+  grid-template-columns: repeat(3, 1fr);
+ }
+
+ .nav__label,
+ .nav__input {
+  display: none;
+ }
+
+ .nav__menu {
+  flex-direction: row;
+  top: 0;
+  position: relative;
+  clip-path: circle(100% at center);
+  height: 80px;
+  background-color: var(--white);
+  padding: 30px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+ }
+
+ .nav__menu ul {
+  flex-direction: row;
+  gap: 20px;
+  justify-content: flex-end;
+ }
+
+ .buttonDelete, .buttonEdit {
+  width: 40%;
+}
+
+}
+
+@media (min-width: 1000px) {
+ .header__search {
+  width: 500px;
+ }
+
+ .container__products {
+  grid-template-columns: repeat(4, 1fr);
+ }
+
+ .container__footer {
+  padding: 0 80px;
+ }
+
+ .card__person-container {
+  grid-template-columns: repeat(4, 1fr);
+ }
+
+ .container__general {
+  padding: 30px 250px;
+ }
+
+ .contactContainer {
+  flex-direction: row;
+ }
+}
+
+@media (min-width: 1300px) {
+ .card__person-container {
+  grid-template-columns: repeat(5, 1fr);
+ }
+
+ .container__general {
+  padding: 30px 450px;
+ }
+
+}
+
+
+
