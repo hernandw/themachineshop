@@ -14,7 +14,7 @@ export const User = ({ usuario }) => {
 			
 			<td>
 				<button className="buttonEdit" onClick={()=> navigate(`/admin/user/${id}/edit`)}>Editar</button>
-				<Form method='post'  >
+				<Form method='post' action={``}>
 				<button type="submit" className="buttonDelete">Eliminar</button>
 				</Form>
 			</td>
