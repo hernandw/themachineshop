@@ -126,6 +126,30 @@ body {
   width: 50px;
 }
 
+.product__detail {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  
+}
+.product__detail-img {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+}
+
+.product__detail-description {
+  margin: 15px 0;
+  font-weight: bold;
+}
+.product__detail-left {
+  width: 100%;
+}
+.product__detail-info{
+  display: flex;
+  flex-direction: column ;
+  padding: 15px;
+  width: 100%;
+}
 /* Fin del Header */
 
 /* Formulario de Login */

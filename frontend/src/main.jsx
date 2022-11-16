@@ -9,6 +9,8 @@ import {
  Users,
  ProductAdd,
  ErrorPage,
+ ProductDetail,
+ loaderDetail as detailProductLoader,
  //loader as usersLoader,
  //loaderProductos as productsLoader,
 } from './components/';
@@ -89,6 +91,11 @@ const router = createBrowserRouter([
    },
   ],
  },
+ {
+  path: '/productdetail/:productId/',
+  element: <ProductDetail  />,
+  loader: detailProductLoader
+ }
  /*  {
   path: '/admin/user/:userId/edit',
   element: <UserEdit />,
