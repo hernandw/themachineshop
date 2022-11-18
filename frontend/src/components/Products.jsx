@@ -37,14 +37,14 @@ export const Products = () => {
           <p className='card__title'>{product.product_name}</p>
           <p className='card__price'>{formateado(product.product_price)}</p>
           <button className='card__button' onClick={()=>navigate(`/productdetail/${product.id_product}`)}>Ver producto</button>
-          <button
+         {/*  <button
            className='card__button'
            onClick={() => {
             addToCart(product.id_product);
             swal('Producto agregado al carrito', '', 'success');
            }}>
            Agregar al carrito
-          </button>
+          </button> */}
          </div>
         </div>
        );
