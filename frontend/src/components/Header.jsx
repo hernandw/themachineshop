@@ -1,4 +1,5 @@
 import logo from '../assets/icons/logo.svg';
+import search from '../assets/icons/search.svg';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import { VscAccount } from 'react-icons/vsc';
@@ -38,12 +39,9 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
       <img className='header__logo' src={logo} alt='logotipo' />
      </Link>
     </div>
-    <div className='search'>
-     <input
-      className='header__search'
-      type='text'
-      placeholder='¿Qué deseas buscar?'
-     />
+    <div class="search">
+    <input type="text" class="search__input" aria-label="search" placeholder="enter your search"/>
+    <button class="search__submit" aria-label="submit search"><img className='search_logo' src={search} alt='logotipo' /></button>
     </div>
     {user ? (
      <div className='profile'>
