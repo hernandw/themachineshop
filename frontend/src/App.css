@@ -580,9 +580,9 @@ span {
 
 .badge {
  position: absolute;
- top: -10px;
- right: -10px;
- padding: 5px 10px;
+ top: -8px;
+ right: -7px;
+ padding: 3px 6px;
  border-radius: 50%;
  background: red;
  color: white;
@@ -761,6 +761,17 @@ span {
 }
 
 @media screen and (max-width:599px) {
+
+  .header__button-login{
+    width: 50px;
+  }
+
+  .badge{
+    top: -6px;
+    right: -6px;
+    padding: 0px 4px;
+  }
+
   .search {
     margin: 0 10px 0 10px;
     --size: 38px;
