@@ -37,7 +37,7 @@ export const Header = ({ setModal, setAnimarModal, user, setUser }) => {
      </Link>
     </div>
     <div class="search">
-    <input type="text" class="search__input" aria-label="search" placeholder="enter your search"/>
+    <input type="text" class="search__input" aria-label="search" placeholder="¿Qué deseas buscar?"/>
     <button class="search__submit" aria-label="submit search"><img className='search_logo' src={search} alt='logotipo' /></button>
     </div>
     {user ? (
