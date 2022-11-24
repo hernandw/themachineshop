@@ -6,9 +6,9 @@ import { Loader } from "./Loader";
 import { useNavigate } from "react-router-dom";
 import { formateado } from "../helpers/formateado";
 
-export const loader = ({params})=>{
-  console.log(params)
-}
+export const loader = ({ params }) => {
+ console.log(params);
+};
 
 export const Products = () => {
 	const navigate = useNavigate();

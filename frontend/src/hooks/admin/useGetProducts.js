@@ -1,7 +1,14 @@
+<<<<<<< HEAD:frontend/src/hooks/useGetProducts.js
 import axios from "axios";
 import { useContext } from "react";
 import { TYPES } from "../actions/cartActions";
 import CartContext from "../context/CartContext";
+=======
+import axios from 'axios';
+import { useContext } from 'react';
+import { TYPES } from '../../actions/cartActions';
+import CartContext from '../../context/CartContext';
+>>>>>>> 0a31f9058f69e552509a05953c2175135f334e15:frontend/src/hooks/admin/useGetProducts.js
 
 const url = import.meta.env.VITE_API_URL;
 
