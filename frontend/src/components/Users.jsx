@@ -1,16 +1,15 @@
-import { useGetUsers } from '../hooks/useGetUsers';
+import { getUser } from '../hooks/useGetUsers.js';
 import { User } from './User';
+import { useLoaderData } from 'react-router-dom'
 
-//Para ejecutar una funcion antes de renderizar
-//podemos utilizar el hook useEffect
-/* export const loader = () => {
- const usersAll = getUsers();
+export const loaderUser = async ()=>{
+const users = await  getUser()
 
- return usersAll;
-}; */
+return users
+}
 
 export const Users = () => {
- const { users } = useGetUsers();
+ const users = useLoaderData()
 
  return (
   <>

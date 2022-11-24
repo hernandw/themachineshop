@@ -5,18 +5,25 @@ import { App } from "./App";
 import { CartProvider } from "./context/CartContext";
 import {
 	Products,
-  
 	Admin,
 	Users,
+	loaderUser,
 	ProductAdd,
 	ErrorPage,
 	ProductDetail,
-	
-  loaderProduct,
+	loaderProduct,
 } from "./components/";
 
-import { About, Answers, Contact, Privacy, Work, Cart } from "./pages/";
-
+import {
+	About,
+	Answers,
+	Contact,
+	Privacy,
+	Work,
+	Cart,
+	Register,
+	action as FormActionRegister,
+} from "./pages/";
 
 const router = createBrowserRouter([
 	{
@@ -25,7 +32,8 @@ const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				element: <Products />,
+				element: <Products />
+				
 			},
 
 			{
@@ -52,11 +60,17 @@ const router = createBrowserRouter([
 				path: "/cart",
 				element: <Cart />,
 			},
-      {
-        path: '/product/:id_product',
-        element: <ProductDetail  />,
-        loader: loaderProduct
-      }
+			{
+				path: "/register",
+				element: <Register />,
+				action: FormActionRegister,
+				errorElement: <ErrorPage />,
+			},
+			{
+				path: "/product/:id_product",
+				element: <ProductDetail />,
+				loader: loaderProduct,
+			},
 		],
 	},
 	{
@@ -70,7 +84,7 @@ const router = createBrowserRouter([
 			{
 				path: "/admin/users",
 				element: <Users />,
-
+				loader: loaderUser,
 				errorElement: <ErrorPage />,
 			},
 			{
@@ -79,7 +93,6 @@ const router = createBrowserRouter([
 			},
 		],
 	},
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
