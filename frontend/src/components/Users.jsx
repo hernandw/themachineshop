@@ -1,4 +1,4 @@
-import { getUser } from '../hooks/useGetUsers.js';
+import { getUser } from '../hooks/admin/useGetUsers.js';
 import { User } from './User';
 import { useLoaderData } from 'react-router-dom'
 

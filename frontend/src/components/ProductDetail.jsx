@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import { formateado } from "../helpers/formateado";
-import { getProduct } from "../hooks/useGetProducts.js";
+import { getProduct } from "../hooks/admin/useGetProducts.js";
 
 export const loaderProduct = async ({ params }) => {
 	const producto = await getProduct(params.id_product);

@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { TYPES } from '../actions/cartActions';
 import CartContext from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
+import { formateado } from '../helpers/formateado'
 
 export function Cart() {
  const { dispatch, state } = useContext(CartContext);
@@ -24,12 +25,7 @@ export function Cart() {
   dispatch({ type: TYPES.CLEAR_CART });
  };
 
- const formateado = (number) => {
-  return number.toLocaleString('ES-es', {
-   style: 'currency',
-   currency: 'USD',
-  });
- };
+ 
  return (
   <>
    <div>

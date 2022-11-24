@@ -1,6 +1,6 @@
 import { Form, redirect, useActionData } from "react-router-dom";
 import { Errores, FormRegister } from "../components/";
-import { addUser } from "../hooks/useGetUsers.js";
+import { addUser } from "../hooks/admin/useGetUsers.js";
 
 export const action = async ({ request }) => {
 	const formData = await request.formData();
