@@ -5,6 +5,7 @@ import {
  getUsers,
  getUser,
  updateUser,
+ deleteUser
 } from '../controllers/users.controllers.js';
 import { verifyToken } from '../middlewares/verifyToken.js';
 
@@ -19,8 +20,10 @@ router.get('/users', verifyToken, getUsers);
 router.get('/user/:id', verifyToken, getUser);
 //modificar un usuario
 
-router.patch('/user/:id', updateUser);
+router.put('/user/:id', updateUser);
 
+
+router.delete('/user/:id', deleteUser)
 //eliminar un usuario
 
 export default router;

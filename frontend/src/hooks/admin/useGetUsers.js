@@ -1,8 +1,8 @@
-import axios from "axios";
+
 
 const url = import.meta.env.VITE_API_URL;
 
-export const getUser = async () => {
+export const getUsers = async () => {
 	try {
     const getToken = window.localStorage.getItem("loggedAppUser");
 		const parseToken = JSON.parse(getToken);
@@ -37,6 +37,45 @@ export const addUser = async (datos) => {
 		console.log(error);
 	}
 };
+
+export const getUser = async(id)=>{
+	try {
+		const getToken = window.localStorage.getItem("loggedAppUser");
+		const parseToken = JSON.parse(getToken);
+		const token = parseToken.token;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+		const respuesta = await fetch(`${url}/api/user/${id}`, config)
+		const resultado = await respuesta.json();
+		return resultado;
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+export const updateUser = async (id, datos )=>{
+	try {
+		const respuesta = await fetch(`${url}/api/user/${id}`, {
+			method: "PUT",
+			body: JSON.stringify(datos),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+		await respuesta.json();
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+export const deleteUser = async(id)=>{
+	console.log('Eliminando....')
+	console.log(id)
+}
+
 
 /* export const useGetUsers = () => {
 	const [users, setUsers] = useState({});
