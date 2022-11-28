@@ -13,7 +13,7 @@ export const Admin = () => {
 			<div className='container'>
 				<nav>
 					<div className='header'>
-						<img className='header__logo' src={logo} alt='Logotipo' />
+						<Link to="/admin" ><img className='header__logo' src={logo} alt='Logotipo' /></Link>
 						<label className='nav__label' htmlFor='menu' onClick={onHandleOpen}>
 							<GoThreeBars />
 						</label>
@@ -30,11 +30,7 @@ export const Admin = () => {
 										Usuarios
 									</Link>
 								</li>
-								<li className='menu__item'>
-									<Link className='nav__item' to='#' onClick={onHandleOpen}>
-										Paginas
-									</Link>
-								</li>
+							
 								<li className='menu__item'>
 									<Link
 										className='nav__item'

@@ -174,7 +174,7 @@ body {
  padding-bottom: 5px;
 }
 
-.button__register {
+.button__register, .button__editar_user {
  padding: 10px;
  text-transform: uppercase;
  color: var(--white);
@@ -184,6 +184,10 @@ body {
 
  margin-bottom: 10px;
  cursor: pointer;
+}
+
+.button__editar_user {
+margin: 15px 0
 }
 
 /* Menu Administracion */
@@ -243,6 +247,8 @@ tr:nth-child(even) td {
   margin-right: 5px;
   width: 100%;
 }
+
+
 .buttonDelete {
   color: white;
   background-color: red;
