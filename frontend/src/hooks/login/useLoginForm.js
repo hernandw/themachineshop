@@ -10,6 +10,8 @@ const initialForm = {
  password: '',
 };
 
+const url = import.meta.env.VITE_API_URL;
+
 export const useLoginForm = (setModalIsVisible, setUser) => {
  const [form, setForm] = useState(initialForm);
  const [errors, setErrors] = useState({});
@@ -47,7 +49,7 @@ export const useLoginForm = (setModalIsVisible, setUser) => {
    setLoading(true);
 
    try {
-    const request = await axios.post(`http://localhost:5825/api/SignIn`, {
+    const request = await axios.post(`${url}/api/SignIn`, {
      email: form.email,
      password: form.password,
     });
