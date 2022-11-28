@@ -104,6 +104,17 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
    },
    {
+    path: "/admin/user/:id_user/",
+    element: <UserDetail />,
+    loader: userLoaderDetail,
+    action: userDetailAction,
+    errorElement: <ErrorPage />,
+   },
+   {
+    path: '/admin/user/:id_user/eliminar',
+    action: actionDeleteUser,
+    },
+   {
     path: '/admin/products',
     element: <ProductAdd />,
    },
