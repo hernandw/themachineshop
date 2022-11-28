@@ -11,12 +11,13 @@ export const CartProvider = ({ children }) => {
   cartReducer,
   cartStorage ? cartStorage : cartInitialState
  );
+ const [saleData, setSaleData] = useState(null);
 
  useEffect(() => {
   window.localStorage.setItem('cart', JSON.stringify(state));
  }, [state]);
 
- const contextData = { dispatch, state };
+ const contextData = { dispatch, state, saleData, setSaleData };
 
  return (
   <CartContext.Provider value={contextData}>{children}</CartContext.Provider>

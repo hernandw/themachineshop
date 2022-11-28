@@ -93,6 +93,7 @@ export const Checkout = () => {
        )}.00`}
       </p>
      </section>
+     <button onClick={() => navigate('/payment')}>continuar</button>
     </>
    ) : (
     <>

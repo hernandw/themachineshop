@@ -10,6 +10,8 @@ import usersDetails from './routes/usersDetails.routes.js';
 import document from './routes/document.routes.js';
 import address from './routes/address.routes.js';
 import phone from './routes/phones.routes.js';
+import checkout from './routes/checkout.routes.js';
+import sales from './routes/sales.routes.js';
 
 const app = express();
 
@@ -30,6 +32,10 @@ app.use('/api', address);
 app.use('/api', categories);
 
 app.use('/api', products);
+
+app.use('/api', sales);
+
+app.use('/api', checkout);
 
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(specs));
 

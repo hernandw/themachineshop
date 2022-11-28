@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { TYPES } from '../actions/cartActions';
 import CartContext from '../context/CartContext';
 import { useNavigate } from 'react-router-dom';
-import { formateado } from '../helpers/formateado'
+import { formateado } from '../helpers/formateado';
 
 export function Cart() {
  const { dispatch, state } = useContext(CartContext);
@@ -25,7 +25,6 @@ export function Cart() {
   dispatch({ type: TYPES.CLEAR_CART });
  };
 
- 
  return (
   <>
    <div>
@@ -86,7 +85,7 @@ export function Cart() {
       onClick={() => {
        navigate('/checkout');
       }}>
-      Proceder al pago
+      Continuar
      </button>
     )}
    </article>

@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 import { ModalProvider } from './context/ModalContext';
 import { UserProvider } from './context/UserContext';
 import { UserProfileProvider } from './context/UserProfileContext';
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { App } from "./App";
-import { CartProvider } from "./context/CartContext";
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { App } from './App';
+import { CartProvider } from './context/CartContext';
 import {
-	Products,
-	Admin,
-	Users,
-	loaderUser,
-	ProductAdd,
-	ErrorPage,
-	ProductDetail,
-	loaderProduct,
-} from "./components/";
+ Products,
+ Admin,
+ Users,
+ loaderUser,
+ ProductAdd,
+ ErrorPage,
+ ProductDetail,
+ loaderProduct,
+} from './components/';
 
 import {
  About,
@@ -24,13 +24,13 @@ import {
  Privacy,
  Register,
  Work,
- 
  Checkout,
  Cart,
  Profile,
  action as FormActionRegister,
 } from './pages/';
-
+import { Payment } from './pages/Payment';
+import OrderSummary from './pages/OrderSummary';
 
 const router = createBrowserRouter([
  {
@@ -41,6 +41,8 @@ const router = createBrowserRouter([
     index: true,
     element: <Products />,
    },
+   { path: '/payment', element: <Payment /> },
+   { path: '/ordersummary', element: <OrderSummary /> },
    {
     path: '/checkout',
     element: <Checkout />,
@@ -74,16 +76,16 @@ const router = createBrowserRouter([
     element: <Profile />,
    },
    {
-		path: "/register",
-		element: <Register />,
-		action: FormActionRegister,
-		errorElement: <ErrorPage />,
-		 },
-		 {
-			path: '/product/:id_product/',
-			element: <ProductDetail />,
-			loader: loaderProduct,
-		 },
+    path: '/register',
+    element: <Register />,
+    action: FormActionRegister,
+    errorElement: <ErrorPage />,
+   },
+   {
+    path: '/product/:id_product/',
+    element: <ProductDetail />,
+    loader: loaderProduct,
+   },
   ],
  },
  {
@@ -103,12 +105,9 @@ const router = createBrowserRouter([
    {
     path: '/admin/products',
     element: <ProductAdd />,
-    
    },
   ],
  },
- 
- 
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
