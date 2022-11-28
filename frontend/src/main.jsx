@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ModalProvider } from './context/ModalContext';
 import { UserProvider } from './context/UserContext';
@@ -16,6 +15,9 @@ import {
  ErrorPage,
  ProductDetail,
  loaderProduct,
+ UserDetail,
+ userLoaderDetail,
+ actionDeleteUser,
 } from './components/';
 
 import {
@@ -104,16 +106,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
    },
    {
-    path: "/admin/user/:id_user/",
+    path: '/admin/user/:id_user/',
     element: <UserDetail />,
     loader: userLoaderDetail,
-    action: userDetailAction,
+    //action: userDetailAction,
     errorElement: <ErrorPage />,
    },
    {
     path: '/admin/user/:id_user/eliminar',
     action: actionDeleteUser,
-    },
+   },
    {
     path: '/admin/products',
     element: <ProductAdd />,
@@ -122,16 +124,16 @@ const router = createBrowserRouter([
  },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
-		<UserProvider>
-			<UserProfileProvider>
-				<CartProvider>
-					<ModalProvider>
-						<RouterProvider router={router} />
-					</ModalProvider>
-				</CartProvider>
-			</UserProfileProvider>
-		</UserProvider>
-	</React.StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+ <React.StrictMode>
+  <UserProvider>
+   <UserProfileProvider>
+    <CartProvider>
+     <ModalProvider>
+      <RouterProvider router={router} />
+     </ModalProvider>
+    </CartProvider>
+   </UserProfileProvider>
+  </UserProvider>
+ </React.StrictMode>
 );
