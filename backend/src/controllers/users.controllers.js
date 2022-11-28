@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 import { JWTSECRET } from "../config/config.js";
 
 export const signUp = async (req, res) => {
-	const { id_user, username, email, password, roles } = req.body;
+	const { username, email, password, roles } = req.body;
 
 	try {
 		const [rows] = await pool.query(
@@ -150,9 +150,16 @@ export const updateUser = async (req, res) => {
 export const deleteUser = async (req, res) => {
 	const { id } = req.params;
 	try {
-		const [result] = await pool.query("DELETE * FROM Users  WHERE id_user = ?", [id]);
-		return res.status(203).json()
+		const [result] = await pool.query("DELETE FROM Users  WHERE id_user = ?", [id]);
+		if (result.affectedRows <= 0)
+		return res.status(404).json({
+		 message: 'User not found',
+		});
+ 
+	 res.sendStatus(204);
 	} catch (error) {
-		console.log('error')
+		return res.status(500).json({
+			message: "Something goes wrong",
+		});
 	}
 };

@@ -1,22 +1,19 @@
-
-
 const url = import.meta.env.VITE_API_URL;
 
 export const getUsers = async () => {
 	try {
-    const getToken = window.localStorage.getItem("loggedAppUser");
+		const getToken = window.localStorage.getItem("loggedAppUser");
 		const parseToken = JSON.parse(getToken);
 		const token = parseToken.token;
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
 		const respuesta = await fetch(`${url}/api/users`, config);
-    const resultado = await respuesta.json()
-   
-    
-    return resultado.rows
+		const resultado = await respuesta.json();
+
+		return resultado.rows;
 	} catch (error) {
 		console.log(error);
 	}
@@ -24,7 +21,6 @@ export const getUsers = async () => {
 
 export const addUser = async (datos) => {
 	try {
-		
 		const respuesta = await fetch(`${url}/api/signUp`, {
 			method: "POST",
 			body: JSON.stringify(datos),
@@ -38,25 +34,25 @@ export const addUser = async (datos) => {
 	}
 };
 
-export const getUser = async(id)=>{
+export const getUser = async (id) => {
 	try {
 		const getToken = window.localStorage.getItem("loggedAppUser");
 		const parseToken = JSON.parse(getToken);
 		const token = parseToken.token;
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-		const respuesta = await fetch(`${url}/api/user/${id}`, config)
+		const config = {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		};
+		const respuesta = await fetch(`${url}/api/user/${id}`, config);
 		const resultado = await respuesta.json();
 		return resultado;
 	} catch (error) {
-		console.log(error)
+		console.log(error);
 	}
-}
+};
 
-export const updateUser = async (id, datos )=>{
+export const updateUser = async (id, datos) => {
 	try {
 		const respuesta = await fetch(`${url}/api/user/${id}`, {
 			method: "PUT",
@@ -69,13 +65,18 @@ export const updateUser = async (id, datos )=>{
 	} catch (error) {
 		console.log(error);
 	}
-}
+};
 
-export const deleteUser = async(id)=>{
-	console.log('Eliminando....')
-	console.log(id)
-}
-
+export const deleteUser = async (id) => {
+	try {
+		const respuesta = await fetch(`${url}/api/user/${id}`, {
+			method: "DELETE"
+		});
+		return 
+	} catch (error) {
+		console.log(error);
+	}
+};
 
 /* export const useGetUsers = () => {
 	const [users, setUsers] = useState({});

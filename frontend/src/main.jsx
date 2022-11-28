@@ -17,8 +17,9 @@ import {
 	loaderProduct,
 	UserDetail,
 	userLoaderDetail,
-	action as elimarUserAction,
-	action as userDetailAction
+	actionDeleteUser,
+	action as userDetailAction,
+	
 } from "./components/";
 
 import {
@@ -96,13 +97,14 @@ const router = createBrowserRouter([
 				index: true,
 				element: <h3>Inicio</h3>,
 			},
+
 			{
 				path: "/admin/users",
 				element: <Users />,
 				loader: loaderUser,
 				errorElement: <ErrorPage />,
 			},
-      {
+			{
 				path: "/admin/user/:id_user/",
 				element: <UserDetail />,
 				loader: userLoaderDetail,
@@ -110,9 +112,11 @@ const router = createBrowserRouter([
 				errorElement: <ErrorPage />,
 			},
 			{
-				path: "/admin/user/:id_user/",
-				action: elimarUserAction,
+				path: '/admin/user/:id_user/eliminar',
+				action: actionDeleteUser,
+				
 			},
+
 			{
 				path: "/admin/products",
 				element: <ProductAdd />,
