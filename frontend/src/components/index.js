@@ -10,3 +10,6 @@ export * from './Loader';
 export * from './Errores';
 export * from './ErrorPage'
 export * from './ProductDetail'
+export * from './UserDetail'
+
+export * from './User'

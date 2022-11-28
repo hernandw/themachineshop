@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 
+
 export const FormRegister = ({user}) => {
 	
 	const [rol, setRol] = useState('user')
@@ -10,7 +11,7 @@ export const FormRegister = ({user}) => {
 		
 			<div>
 				<div className='form__container--campo'>
-					<label className='input__form' htmlFor='user'>
+					<label className='input__form' htmlFor='username'>
 						Usuario:
 					</label>
 					<input
