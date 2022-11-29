@@ -10,7 +10,7 @@ const url = import.meta.env.VITE_API_URL;
 
 const localStorageUser = window.localStorage.getItem('loggedAppUser');
 const loggedUser = JSON.parse(localStorageUser);
-const userId = loggedUser.id_user;
+const userId = loggedUser?.id_user;
 
 export const CheckoutForm = () => {
  const [error, setError] = useState(null);
