@@ -1,16 +1,25 @@
-import React, { useState } from "react";
-import { Header, Footer, Modal } from "./components/";
-import { Outlet } from "react-router-dom";
+import { useEffect, useState, useContext } from 'react';
+import { Header, Footer } from './components/';
+import { Outlet } from 'react-router-dom';
+import { Modal } from './components/Modal';
+import ModalContext from './context/ModalContext';
+import { useGetProducts } from './hooks/admin/useGetProducts';
 
 export const App = () => {
-  const [modal, setModal] = useState(false);
-  const [animarModal, setAnimarModal] = useState(false)
-  return (
-    <div className={modal ? 'fijar' : ''}>
-      <Header setModal={setModal} setAnimarModal={setAnimarModal}/>
-      <Outlet />
-      <Footer />
-      {modal && <Modal setModal={setModal} animarModal={animarModal} setAnimarModal={setAnimarModal} />}
-    </div>
-  );
+ const { modalIsVisible } = useContext(ModalContext);
+
+ const { getAllProducts } = useGetProducts();
+
+ useEffect(() => {
+  getAllProducts();
+ }, []);
+
+ return (
+  <div className={`${modalIsVisible ? 'fijar' : ''} mainContainer`}>
+   <Header />
+   <Outlet />
+   <Footer />
+   {modalIsVisible && <Modal />}
+  </div>
+ );
 };
